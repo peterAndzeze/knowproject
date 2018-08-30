@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sw.project.teamshrio.user.UserModelMapper">
+  <resultMap id="BaseResultMap" type="com.sw.project.teamshrio.user.UserModel">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="iphone" jdbcType="VARCHAR" property="iphone" />
+    <result column="is_real" jdbcType="CHAR" property="isReal" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_id" jdbcType="BIGINT" property="createId" />
+    <result column="opera_time" jdbcType="TIMESTAMP" property="operaTime" />
+    <result column="opera_id" jdbcType="BIGINT" property="operaId" />
+    <result column="verson" jdbcType="BIGINT" property="verson" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, user_pwd, iphone, is_real, real_name, state, create_time, create_id, 
+    opera_time, opera_id, verson, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_user_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sw.project.teamshrio.user.model.UserModel">
+    insert into tb_user_info (id, user_name, user_pwd, 
+      iphone, is_real, real_name, 
+      state, create_time, create_id, 
+      opera_time, opera_id, verson, 
+      remark)
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, 
+      #{iphone,jdbcType=VARCHAR}, #{isReal,jdbcType=CHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{state,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=BIGINT}, 
+      #{operaTime,jdbcType=TIMESTAMP}, #{operaId,jdbcType=BIGINT}, #{verson,jdbcType=BIGINT}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sw.project.teamshrio.user.model.UserModel">
+    insert into tb_user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPwd != null">
+        user_pwd,
+      </if>
+      <if test="iphone != null">
+        iphone,
+      </if>
+      <if test="isReal != null">
+        is_real,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+      <if test="operaTime != null">
+        opera_time,
+      </if>
+      <if test="operaId != null">
+        opera_id,
+      </if>
+      <if test="verson != null">
+        verson,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="iphone != null">
+        #{iphone,jdbcType=VARCHAR},
+      </if>
+      <if test="isReal != null">
+        #{isReal,jdbcType=CHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="operaTime != null">
+        #{operaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operaId != null">
+        #{operaId,jdbcType=BIGINT},
+      </if>
+      <if test="verson != null">
+        #{verson,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sw.project.teamshrio.user.model.UserModel">
+    update tb_user_info
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        user_pwd = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="iphone != null">
+        iphone = #{iphone,jdbcType=VARCHAR},
+      </if>
+      <if test="isReal != null">
+        is_real = #{isReal,jdbcType=CHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="operaTime != null">
+        opera_time = #{operaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operaId != null">
+        opera_id = #{operaId,jdbcType=BIGINT},
+      </if>
+      <if test="verson != null">
+        verson = #{verson,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sw.project.teamshrio.user.model.UserModel">
+    update tb_user_info
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_pwd = #{userPwd,jdbcType=VARCHAR},
+      iphone = #{iphone,jdbcType=VARCHAR},
+      is_real = #{isReal,jdbcType=CHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      state = #{state,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_id = #{createId,jdbcType=BIGINT},
+      opera_time = #{operaTime,jdbcType=TIMESTAMP},
+      opera_id = #{operaId,jdbcType=BIGINT},
+      verson = #{verson,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
