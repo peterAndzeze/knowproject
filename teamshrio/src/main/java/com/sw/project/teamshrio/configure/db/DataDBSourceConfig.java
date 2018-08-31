@@ -7,7 +7,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -77,7 +76,7 @@ public class DataDBSourceConfig {
         SqlSessionFactoryBean bean=new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         ResourcePatternResolver resolver=new PathMatchingResourcePatternResolver();
-        bean.setMapperLocations(resolver.getResources("classpath*:mybatis/localmapper/*.xml"));
+        bean.setMapperLocations(resolver.getResources("classpath*:mapping/*.xml"));
         return bean.getObject();
     }
     @Bean("dataTransactionManager")

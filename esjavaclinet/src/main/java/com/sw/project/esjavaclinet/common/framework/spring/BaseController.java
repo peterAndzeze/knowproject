@@ -1,7 +1,9 @@
 package com.sw.project.esjavaclinet.common.framework.spring;
 
-import com.esjavaclient.common.basevo.PageModel;
-import com.esjavaclient.common.util.JsonUtil;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.sw.project.esjavaclinet.common.basevo.PageModel;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -58,7 +60,7 @@ public abstract class BaseController {
 		responseMap.put("success", isSuccess);
 		responseMap.put("msg", msg);
 		try {
-			response.getWriter().print(JsonUtil.objectToJson(responseMap));
+			response.getWriter().print(JSON.toJSONString(responseMap));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,7 +83,7 @@ public abstract class BaseController {
 	 */
 	protected String jsonStrAndState(Object data, boolean isSuccess, String msg) {
 		ReturnMsgModel returnMsgModel = new ReturnMsgModel(isSuccess, msg, data);
-		String str = JsonUtil.objectToJsonExcludeProperty(returnMsgModel);
+		String str = JSON.toJSONString(returnMsgModel, SerializerFeature.WRITE_MAP_NULL_FEATURES);
 		return str;
 	}
 
@@ -94,7 +96,7 @@ public abstract class BaseController {
 	 * @return
 	 */
 	protected String jsonStrData(Object data) {
-		String str = JsonUtil.objectToJsonExcludeProperty(data);
+		String str = JSON.toJSONString(data, SerializerFeature.WRITE_MAP_NULL_FEATURES);
 		return str;
 	}
 	/**
@@ -106,7 +108,7 @@ public abstract class BaseController {
 	 * @return
 	 */
 	protected String jsonStrListData(Object data) {
-		String str = JsonUtil.objectToJson(data);
+		String str = JSON.toJSONString(data);
 		return str;
 	}
 
