@@ -59,6 +59,15 @@ public  class EsInfoService  {
     }
 
     /**
+     * 获取所有索引
+     * @return
+     */
+    public static String []  getIndexs(){
+        String [] indexs=getTransportClient().admin().indices().prepareGetIndex().execute().actionGet().getIndices();
+        return indexs;
+    }
+
+    /**
      * 获取索引操作client
      * @return
      */

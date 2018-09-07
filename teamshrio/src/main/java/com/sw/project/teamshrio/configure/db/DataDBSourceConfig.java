@@ -21,7 +21,7 @@ import javax.sql.DataSource;
  * 数据库链接信息
  */
 @Configuration("dataDBSourceConfig")
-@MapperScan(basePackages ="com.sw.project.teamshrio.*.*Mapper" ,sqlSessionTemplateRef ="dataSessionTemplate" )
+@MapperScan(basePackages ={"com.sw.project.teamshrio.menu.MenuModelMapper"} ,sqlSessionTemplateRef ="dataSessionTemplate" )
 public class DataDBSourceConfig {
 
     @Value("${spring.datasource.username}")

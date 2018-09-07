@@ -1,7 +1,9 @@
 package com.sw.project.teamshrio.menu;
 
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+@Mapper
 public interface MenuModelMapper {
     int deleteByPrimaryKey(Long id);
 
