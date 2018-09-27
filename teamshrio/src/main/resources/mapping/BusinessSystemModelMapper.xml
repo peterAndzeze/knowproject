@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sw.project.teamshrio.appname.BusinessSystemModelMapper">
+  <resultMap id="BaseResultMap" type="com.sw.project.teamshrio.appname.BusinessSystemModel">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sys_name" jdbcType="VARCHAR" property="sysName" />
+    <result column="sys_des" jdbcType="VARCHAR" property="sysDes" />
+    <result column="sys_url" jdbcType="VARCHAR" property="sysUrl" />
+    <result column="create_id" jdbcType="BIGINT" property="createId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="opera_id" jdbcType="BIGINT" property="operaId" />
+    <result column="opera_time" jdbcType="TIMESTAMP" property="operaTime" />
+    <result column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sys_name, sys_des, sys_url, create_id, create_time, opera_id, opera_time, org_id, 
+    state, remark, version, role_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_business_system
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_business_system
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sw.project.teamshrio.appname.BusinessSystemModel">
+    insert into tb_business_system (id, sys_name, sys_des, 
+      sys_url, create_id, create_time, 
+      opera_id, opera_time, org_id, 
+      state, remark, version, 
+      role_id)
+    values (#{id,jdbcType=BIGINT}, #{sysName,jdbcType=VARCHAR}, #{sysDes,jdbcType=VARCHAR}, 
+      #{sysUrl,jdbcType=VARCHAR}, #{createId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{operaId,jdbcType=BIGINT}, #{operaTime,jdbcType=TIMESTAMP}, #{orgId,jdbcType=BIGINT}, 
+      #{state,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{version,jdbcType=BIGINT}, 
+      #{roleId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sw.project.teamshrio.appname.BusinessSystemModel">
+    insert into tb_business_system
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sysName != null">
+        sys_name,
+      </if>
+      <if test="sysDes != null">
+        sys_des,
+      </if>
+      <if test="sysUrl != null">
+        sys_url,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="operaId != null">
+        opera_id,
+      </if>
+      <if test="operaTime != null">
+        opera_time,
+      </if>
+      <if test="orgId != null">
+        org_id,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sysName != null">
+        #{sysName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysDes != null">
+        #{sysDes,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUrl != null">
+        #{sysUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operaId != null">
+        #{operaId,jdbcType=BIGINT},
+      </if>
+      <if test="operaTime != null">
+        #{operaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sw.project.teamshrio.appname.BusinessSystemModel">
+    update tb_business_system
+    <set>
+      <if test="sysName != null">
+        sys_name = #{sysName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysDes != null">
+        sys_des = #{sysDes,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUrl != null">
+        sys_url = #{sysUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operaId != null">
+        opera_id = #{operaId,jdbcType=BIGINT},
+      </if>
+      <if test="operaTime != null">
+        opera_time = #{operaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgId != null">
+        org_id = #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sw.project.teamshrio.appname.BusinessSystemModel">
+    update tb_business_system
+    set sys_name = #{sysName,jdbcType=VARCHAR},
+      sys_des = #{sysDes,jdbcType=VARCHAR},
+      sys_url = #{sysUrl,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      opera_id = #{operaId,jdbcType=BIGINT},
+      opera_time = #{operaTime,jdbcType=TIMESTAMP},
+      org_id = #{orgId,jdbcType=BIGINT},
+      state = #{state,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      version = #{version,jdbcType=BIGINT},
+      role_id = #{roleId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.sw.project.com.sw.project.teamshrio.appname.BusinessSystemModel">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sys_name" jdbcType="VARCHAR" property="sysName" />
+    <result column="sys_des" jdbcType="VARCHAR" property="sysDes" />
+    <result column="sys_url" jdbcType="VARCHAR" property="sysUrl" />
+    <result column="create_id" jdbcType="BIGINT" property="createId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="opera_id" jdbcType="BIGINT" property="operaId" />
+    <result column="opera_time" jdbcType="TIMESTAMP" property="operaTime" />
+    <result column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sys_name, sys_des, sys_url, create_id, create_time, opera_id, opera_time, org_id, 
+    state, remark, version, role_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_business_system
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_business_system
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sw.project.com.sw.project.teamshrio.appname.BusinessSystemModel">
+    insert into tb_business_system (id, sys_name, sys_des, 
+      sys_url, create_id, create_time, 
+      opera_id, opera_time, org_id, 
+      state, remark, version, 
+      role_id)
+    values (#{id,jdbcType=BIGINT}, #{sysName,jdbcType=VARCHAR}, #{sysDes,jdbcType=VARCHAR}, 
+      #{sysUrl,jdbcType=VARCHAR}, #{createId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{operaId,jdbcType=BIGINT}, #{operaTime,jdbcType=TIMESTAMP}, #{orgId,jdbcType=BIGINT}, 
+      #{state,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{version,jdbcType=BIGINT}, 
+      #{roleId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sw.project.com.sw.project.teamshrio.appname.BusinessSystemModel">
+    insert into tb_business_system
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sysName != null">
+        sys_name,
+      </if>
+      <if test="sysDes != null">
+        sys_des,
+      </if>
+      <if test="sysUrl != null">
+        sys_url,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="operaId != null">
+        opera_id,
+      </if>
+      <if test="operaTime != null">
+        opera_time,
+      </if>
+      <if test="orgId != null">
+        org_id,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sysName != null">
+        #{sysName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysDes != null">
+        #{sysDes,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUrl != null">
+        #{sysUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operaId != null">
+        #{operaId,jdbcType=BIGINT},
+      </if>
+      <if test="operaTime != null">
+        #{operaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sw.project.com.sw.project.teamshrio.appname.BusinessSystemModel">
+    update tb_business_system
+    <set>
+      <if test="sysName != null">
+        sys_name = #{sysName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysDes != null">
+        sys_des = #{sysDes,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUrl != null">
+        sys_url = #{sysUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operaId != null">
+        opera_id = #{operaId,jdbcType=BIGINT},
+      </if>
+      <if test="operaTime != null">
+        opera_time = #{operaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgId != null">
+        org_id = #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sw.project.com.sw.project.teamshrio.appname.BusinessSystemModel">
+    update tb_business_system
+    set sys_name = #{sysName,jdbcType=VARCHAR},
+      sys_des = #{sysDes,jdbcType=VARCHAR},
+      sys_url = #{sysUrl,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      opera_id = #{operaId,jdbcType=BIGINT},
+      opera_time = #{operaTime,jdbcType=TIMESTAMP},
+      org_id = #{orgId,jdbcType=BIGINT},
+      state = #{state,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      version = #{version,jdbcType=BIGINT},
+      role_id = #{roleId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

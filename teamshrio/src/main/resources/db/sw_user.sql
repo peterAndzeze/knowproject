@@ -11,7 +11,7 @@
  Target Server Version : 50723
  File Encoding         : 65001
 
- Date: 31/08/2018 18:09:54
+ Date: 27/09/2018 18:04:20
 */
 
 SET NAMES utf8mb4;
@@ -112,7 +112,7 @@ CREATE TABLE `tb_menu_info`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '虚拟主键',
   `menu_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '菜单名称',
   `state` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '数据状态(1:有效，0:无效)',
-  `is_leaf` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否末级节点（1:是,0:否）',
+  `leaf` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否末级节点（1:是,0:否）',
   `parent_id` bigint(20) NULL DEFAULT NULL COMMENT '父级节点',
   `create_id` bigint(20) NULL DEFAULT NULL COMMENT '创建人',
   `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
@@ -122,8 +122,16 @@ CREATE TABLE `tb_menu_info`  (
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   `org_id` bigint(20) NULL DEFAULT NULL COMMENT '所属机构',
   `sys_id` bigint(20) NULL DEFAULT NULL COMMENT '所属业务系统',
+  `role_id` bigint(20) NULL DEFAULT NULL COMMENT '角色编号',
+  `path` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '菜单路径',
+  `icon` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '菜单图片名称',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单信息表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tb_menu_info
+-- ----------------------------
+INSERT INTO `tb_menu_info` VALUES (1, '功能菜单树', '0', '0', 0, 10001, '2018-09-21 17:33:40', 10001, '2018-09-21 17:33:48', 0, '最高节点', 1, 1, 1, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for tb_org_info
@@ -211,14 +219,13 @@ CREATE TABLE `tb_user_info`  (
   `verson` bigint(32) NULL DEFAULT NULL COMMENT '数据版本',
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注信息',
   `org_id` bigint(20) NULL DEFAULT NULL COMMENT '所属机构信息',
-  `role_id` bigint(20) NULL DEFAULT NULL COMMENT '角色信息',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_user_info
 -- ----------------------------
-INSERT INTO `tb_user_info` VALUES (1, '高级管理员', 'nicai', '13718085143', '1', 'peter', '1', '2018-08-31 10:04:56', 1, '2018-08-31 10:05:00', 1, 0, '最高权限用户', 1, 1);
+INSERT INTO `tb_user_info` VALUES (1, 'sw', 'nicai', '13718085143', '1', 'peter', '1', '2018-08-31 10:04:56', 1, '2018-08-31 10:05:00', 1, 0, '最高权限用户', 1);
 
 -- ----------------------------
 -- Table structure for tp_role_depart_relation

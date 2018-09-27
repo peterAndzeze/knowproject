@@ -155,8 +155,8 @@ function loadMenus(obj) {
             tbItem.add(['->',{text: Ext.get("userName").dom.value+" 您好！",iconCls: 'buser'},
                         {
                             xtype:'combo',
-                            store:new Ext.data.ArrayStore({
-                                data:[["1212","缴费管理端"],["12","支付管理端"]],
+                            store:new Ext.data.JsonStore({
+                                url:'',
                                 fields:["id","appName"]
                             }),
                             mode:'local',
@@ -165,6 +165,9 @@ function loadMenus(obj) {
                             displayField:'appName',
                             valueField:'id',
                             selectOnFocus: true,
+                            listeners:{"select":function(data){
+
+                            }}
                         },
                         {text: '退出系统', iconCls: 'blogout', tooltip: '退出系统', handler: logout}]);
             obj.doLayout();
