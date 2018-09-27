@@ -25,6 +25,15 @@
     from tb_menu_info
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+  <select id="selectByNameAndPwd" parameterType="com.sw.project.teamshrio.user.UserModel" resultMap="UserResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_menu_info
+    where user_name=#{userName}
+     and user_pwd=#{userPwd}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from tb_menu_info
     where id = #{id,jdbcType=BIGINT}

@@ -1,6 +1,7 @@
 package com.sw.project.teamshrio.menu;
 
 import java.util.Date;
+import java.util.List;
 
 public class MenuModel {
     private Long id;
@@ -9,7 +10,7 @@ public class MenuModel {
 
     private String state;
 
-    private String isLeaf;
+    private String leaf;
 
     private Long parentId;
 
@@ -28,6 +29,35 @@ public class MenuModel {
     private Long orgId;
 
     private Long sysId;
+
+    private Long roleId;
+    private String path;
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+
+    private List<MenuModel> childMenuModels;
+
+    public List<MenuModel> getChildMenuModels() {
+        return childMenuModels;
+    }
+
+    public void setChildMenuModels(List<MenuModel> childMenuModels) {
+        this.childMenuModels = childMenuModels;
+    }
 
     public Long getId() {
         return id;
@@ -53,12 +83,12 @@ public class MenuModel {
         this.state = state == null ? null : state.trim();
     }
 
-    public String getIsLeaf() {
-        return isLeaf;
+    public String getLeaf() {
+        return leaf;
     }
 
-    public void setIsLeaf(String isLeaf) {
-        this.isLeaf = isLeaf == null ? null : isLeaf.trim();
+    public void setLeaf(String leaf) {
+        this.leaf = leaf;
     }
 
     public Long getParentId() {

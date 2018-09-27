@@ -6,7 +6,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
     <result column="state" jdbcType="CHAR" property="state" />
-    <result column="is_leaf" jdbcType="CHAR" property="isLeaf" />
+    <result column="leaf" jdbcType="CHAR" property="leaf" />
     <result column="parent_id" jdbcType="BIGINT" property="parentId" />
     <result column="create_id" jdbcType="BIGINT" property="createId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -16,11 +16,14 @@
     <result column="remark" jdbcType="VARCHAR" property="remark" />
     <result column="org_id" jdbcType="BIGINT" property="orgId" />
     <result column="sys_id" jdbcType="BIGINT" property="sysId" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId"/>
+    <result column="path" jdbcType="VARCHAR" property="path"/>
+
   </resultMap>
 
   <sql id="Base_Column_List">
-    id, menu_name, state, is_leaf, parent_id, create_id, create_time, opera_id, opera_time, 
-    version, remark, org_id, sys_id
+    id, menu_name, state, leaf, parent_id, create_id, create_time, opera_id, opera_time, 
+    version, remark, org_id, sys_id,path
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="MenuResultMap">
     select 
@@ -34,15 +37,15 @@
   </delete>
   <insert id="insert" parameterType="com.sw.project.teamshrio.menu.MenuModel">
     insert into tb_menu_info (id, menu_name, state, 
-      is_leaf, parent_id, create_id, 
+      leaf, parent_id, create_id, 
       create_time, opera_id, opera_time, 
       version, remark, org_id, 
-      sys_id)
+      sys_id,path)
     values (#{id,jdbcType=BIGINT}, #{menuName,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, 
       #{isLeaf,jdbcType=CHAR}, #{parentId,jdbcType=BIGINT}, #{createId,jdbcType=BIGINT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{operaId,jdbcType=BIGINT}, #{operaTime,jdbcType=TIMESTAMP}, 
       #{version,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{orgId,jdbcType=BIGINT}, 
-      #{sysId,jdbcType=BIGINT})
+      #{sysId,jdbcType=BIGINT},#{path,jdbcType=VARCHAR)
   </insert>
   <insert id="insertSelective" parameterType="com.sw.project.teamshrio.menu.MenuModel">
     insert into tb_menu_info
@@ -57,7 +60,7 @@
         state,
       </if>
       <if test="isLeaf != null">
-        is_leaf,
+        leaf,
       </if>
       <if test="parentId != null">
         parent_id,
@@ -85,6 +88,9 @@
       </if>
       <if test="sysId != null">
         sys_id,
+      </if>
+      <if test="path!=null">
+        path,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -127,6 +133,9 @@
       <if test="sysId != null">
         #{sysId,jdbcType=BIGINT},
       </if>
+      <if test="path!=null">
+        #{path,,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.sw.project.teamshrio.menu.MenuModel">
@@ -139,7 +148,7 @@
         state = #{state,jdbcType=CHAR},
       </if>
       <if test="isLeaf != null">
-        is_leaf = #{isLeaf,jdbcType=CHAR},
+        leaf = #{isLeaf,jdbcType=CHAR},
       </if>
       <if test="parentId != null">
         parent_id = #{parentId,jdbcType=BIGINT},
@@ -168,6 +177,9 @@
       <if test="sysId != null">
         sys_id = #{sysId,jdbcType=BIGINT},
       </if>
+      <if test="path!=null">
+        path=#{path},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -175,7 +187,7 @@
     update tb_menu_info
     set menu_name = #{menuName,jdbcType=VARCHAR},
       state = #{state,jdbcType=CHAR},
-      is_leaf = #{isLeaf,jdbcType=CHAR},
+      leaf = #{isLeaf,jdbcType=CHAR},
       parent_id = #{parentId,jdbcType=BIGINT},
       create_id = #{createId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -184,9 +196,20 @@
       version = #{version,jdbcType=BIGINT},
       remark = #{remark,jdbcType=VARCHAR},
       org_id = #{orgId,jdbcType=BIGINT},
-      sys_id = #{sysId,jdbcType=BIGINT}
+      sys_id = #{sysId,jdbcType=BIGINT},
+      path=#{path}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="queryMenus" resultMap="MenuResultMap" parameterType="com.sw.project.teamshrio.menu.MenuModel">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM tb_menu_info where 1=1
+    <if test="null!=parentId">
+      and parent_id=#{parentId}
+    </if>
+
+  </select>
 
 
 </mapper>

@@ -10,6 +10,7 @@
         <module name="esjavaclinet" />
         <module name="httpclient" />
         <module name="jdbc" />
+        <module name="springcloudeureka" />
         <module name="teamshrio" />
         <module name="threadpool" />
       </profile>
@@ -20,6 +21,8 @@
       <module name="httpclient" target="1.8" />
       <module name="jdbc" target="1.8" />
       <module name="knowproject" target="1.8" />
+      <module name="springcloud-eureka" target="1.8" />
+      <module name="springcloudeureka" target="1.8" />
       <module name="teamshrio" target="1.8" />
       <module name="threadpool" target="1.8" />
     </bytecodeTargetLevel>
