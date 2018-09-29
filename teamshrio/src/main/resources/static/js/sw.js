@@ -33,3 +33,24 @@ app.prevOperation = null;//标识上一个操作：应用
 
 comp.chart = {};
 
+//使grid内容可选择
+if (!Ext.grid.GridView.prototype.templates) {
+    Ext.grid.GridView.prototype.templates = {};
+}
+Ext.grid.GridView.prototype.templates.cell = new Ext.Template(
+    '<td class="x-grid3-col x-grid3-cell x-grid3-td-{id} x-selectable {css}" style="{style}" tabIndex="0" {cellAttr}>',
+    '<div class="x-grid3-cell-inner x-grid3-col-{id}" {attr}>{value}</div>',
+    '</td>'
+);
+
+
+//Ext.BLANK_IMAGE_URL = '${ctxPath}/pub/lib/Ext2/resources/images/default/s.gif';
+Ext.useShims = true;
+//Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+Ext.QuickTips.init();
+//Ext.form.Field.prototype.msgTarget = 'side';
+//var userTheme = '${sessionScope.USER_CONFIG_THEME}';
+//lovcombo
+
+//var globalBasePath = '${basePath}';
+var pageSize=20;

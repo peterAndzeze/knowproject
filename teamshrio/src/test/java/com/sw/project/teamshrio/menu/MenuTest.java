@@ -9,6 +9,6 @@ public class MenuTest extends TeamshrioApplicationTests {
     @Autowired
     public void getMenus(){
         System.out.println(menuService+"**************");
-        menuService.queryMenus(null,null);
+        menuService.getFuncMenu(null,null);
     }
 }

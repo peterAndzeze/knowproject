@@ -197,12 +197,12 @@ function getFirstItems(tbItem, list) {
             }, handler: function () {
                 var curObj = this.currMyMenu;
                 if (curObj.leaf == "0" && null != curObj.path) {
-                    var path = "${ctxPath}" + curObj.path;
+                    var path = curObj.path;
                     var node = {
                         id: curObj.id,
                         text: curObj.menuName,
                         attributes: {
-                            openType: 'TAB',
+                            openType: 'IF_TAB_NL',
                             path: path
                         }
                     };
@@ -244,13 +244,14 @@ function getMenu(obj, parentMenu) {
             currMyMenu: currObj,//把菜单对象放入当前对象中
             handler: function () {
                 var curObj = this.currMyMenu;
+                console.log(curObj);
                 if (curObj.leaf == "0" && null != curObj.path) {
-                    var path = "${ctxPath}" + curObj.path;
+                    var path =curObj.path;
                     var node = {
                         id: curObj.id,
                         text: curObj.menuName,
                         attributes: {
-                            openType: 'TAB',
+                            openType: 'IF_TAB_NL',
                             path: path
                         }
                     };

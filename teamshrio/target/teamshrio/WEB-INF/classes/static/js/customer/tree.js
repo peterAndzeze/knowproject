@@ -23,6 +23,7 @@ sw.tree.refreshNode = function(node){
 	if(!node) return;
 	//alert('nodeId='+node.id)
 	//alert('rootId='+node.getOwnerTree().getRootNode().id)
+
 	if(node.isLeaf() || !node.hasChildNodes()){//叶子节点
 		node.parentNode.attributes.children = false;
 		node.parentNode.reload();

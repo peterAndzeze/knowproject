@@ -184,6 +184,7 @@ sw.util.menuHandle = function(node){
 		var openType = node.attributes.openType;
 		switch(openType){
 			case 'TAB':
+				console.log(node);
 				sw.util.openTab(node.id,node.attributes.path,node.attributes.iconCls,'mainTabPanel',node.text);
 				break;
 			case 'IF_TAB':

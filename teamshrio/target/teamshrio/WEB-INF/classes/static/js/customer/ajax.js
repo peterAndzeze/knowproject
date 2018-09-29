@@ -147,6 +147,7 @@ sw.ajax.submit = function(url, formId, callback, failedCallback){
 			if(callback) callback(action.result);
 		},
 		failure: function(form, action){
+			console.log(action);
 			if(failedCallback){
 				failedCallback(action.result);
 			}else{
