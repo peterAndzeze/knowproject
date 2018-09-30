@@ -8,6 +8,9 @@ import java.util.List;
 public interface MenuModelMapper {
     int deleteByPrimaryKey(Long id);
 
+    int deleteByParentId(Long parentId);
+
+
     int insert(MenuModel record);
 
     int insertSelective(MenuModel record);

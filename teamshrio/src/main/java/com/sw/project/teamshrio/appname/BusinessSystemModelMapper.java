@@ -1,7 +1,10 @@
 package com.sw.project.teamshrio.appname;
 
 import com.sw.project.teamshrio.appname.BusinessSystemModel;
+import com.sw.project.teamshrio.util.PageModel;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface BusinessSystemModelMapper {
@@ -16,4 +19,6 @@ public interface BusinessSystemModelMapper {
     int updateByPrimaryKeySelective(BusinessSystemModel record);
 
     int updateByPrimaryKey(BusinessSystemModel record);
+
+    List<BusinessSystemModel> queryPageBusinessSystems(PageModel pageModel,BusinessSystemModel businessSystemModel);
 }

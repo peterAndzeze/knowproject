@@ -21,8 +21,8 @@
     <script th:src="@{../js/customer/form.js}" type="text/javascript"></script>
     <script th:src="@{../js/customer/function.js}" type="text/javascript"></script>
     <script th:src="@{../js/customer/tree.js}" type="text/javascript"></script>
-
     <script th:src="@{../js/menu/menu.js}" type="text/javascript"></script>
+
 
 </head>
 <body >
@@ -37,7 +37,7 @@
             baseParams:{id:rootId},
             id: 'id',
             root:'records',
-            fields:['id', 'menuName', 'state', 'remark', 'path']
+            fields:['id', 'menuName', 'state', 'path','org_id','sys_id','remark',]
         });
         /* var buttons = [
                           {xtype:'tbseparator'},
@@ -54,6 +54,12 @@
                 header: '菜单名称',
                 dataIndex: 'menuName'
             },{
+                header:'所属系统',
+                dataIndex:'sys_id'
+            },{
+                header:'所属机构',
+                dataIndex:'org_id'
+            },{
                 header: "全路径",
                 dataIndex: "path"
             },{
@@ -67,6 +73,7 @@
         /*============================== 主界面 ==========================================*/
         //子字典列表
         var grid = new Ext.grid.GridPanel({
+            id:gridId,
             cm: cm,
             sm: sm,
             ds: ds,
@@ -108,7 +115,7 @@
             rootVisible:true,
             root: new Ext.tree.AsyncTreeNode({
                 //nodeType: 'async',
-                text:'菜单总览',
+                text:'功能配置',
                 draggable:false,
                 id:rootId
             }),
@@ -144,10 +151,10 @@
                 sw.menu.createBtn('新建字典（项）','badd',add),
                 sw.menu.createBtn('修改字典（项）','bpencil',edit),
                 sw.menu.createBtn('删除字典（项）','bdelete',del),
-                sw.menu.createBtn('刷新字典（项）','brefresh',refreshNode),
-                sw.menu.createBtn('复制字典（项）','bcopy',copy),
-                sw.menu.createBtn('粘贴字典（项）','bpaste',paste)
-                ,sw.menu.createBtn('<span style="color:red;font-weight:bold">级联删除字典</span>','bfolder_delete',dels)
+                //sw.menu.createBtn('刷新字典（项）','brefresh',refreshNode),
+                //sw.menu.createBtn('复制字典（项）','bcopy',copy),
+                //sw.menu.createBtn('粘贴字典（项）','bpaste',paste),
+                sw.menu.createBtn('<span style="color:red;font-weight:bold">级联删除字典</span>','bfolder_delete',dels)
             ]
         });
 

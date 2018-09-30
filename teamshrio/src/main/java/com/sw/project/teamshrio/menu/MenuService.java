@@ -3,7 +3,6 @@ package com.sw.project.teamshrio.menu;
 import com.alibaba.fastjson.JSONArray;
 import com.sw.project.teamshrio.common.TeamShiroConstant;
 import com.sw.project.teamshrio.util.DataRelationUtil;
-import com.sw.project.teamshrio.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -51,6 +50,7 @@ public class MenuService {
 
     /**
      * 根据主键获取
+     *
      * @param id
      * @return
      */
@@ -66,6 +66,9 @@ public class MenuService {
      * @return
      */
     public String getFuncMenu(Long userId, Long parentId) {
+        if(null==parentId){
+            parentId=-1L;
+        }
         List<MenuModel> menuModels = menuModelMapper.queryMenus(null, parentId);
         String mennus = DataRelationUtil.createMenus(menuModels, parentId);
         return mennus;
@@ -89,6 +92,26 @@ public class MenuService {
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception("添加失败！！！");
+        }
+    }
+
+    /**
+     *　删除菜单
+     * @param id
+     */
+    public void deleteMenuById(Long id,Long parentId,String delType) throws Exception {
+        //查询出来当前上级菜单　如果只有这一个子节点，那么删除之后，该父节点变为子节点
+        List<MenuModel> menuModels = menuModelMapper.queryMenus(null, parentId);
+        MenuModel parentMenu=new MenuModel();
+        parentMenu.setId(parentId);
+        parentMenu.setLeaf(TeamShiroConstant.IS_LEAF);
+        if(menuModels.size()==1){
+            menuModelMapper.updateByPrimaryKeySelective(parentMenu);
+        }
+        menuModelMapper.deleteByPrimaryKey(id);
+        if(null!=delType && delType.equals(TeamShiroConstant.DELTYPE)){
+            menuModelMapper.deleteByParentId(parentId);
+            menuModelMapper.updateByPrimaryKeySelective(parentMenu);
         }
     }
 

@@ -25,32 +25,29 @@ public class MenuController extends BaseController {
 
     /**
      * 获取功能菜单
+     *
      * @return
      */
     @RequestMapping("/getFuncMenu")
     @ResponseBody
-    public String getFuncMenu(Long parentId){
+    public String getFuncMenu(Long parentId) {
         //获取当前session　加上用户查询
         //当前是查询数据库
-       String functionMenus= menuService.getFuncMenu(null,parentId);
-       return jsonStrAndState(functionMenus, true, "查询成功");
+        String functionMenus = menuService.getFuncMenu(null, parentId);
+        return jsonStrAndState(functionMenus, true, "查询成功");
     }
 
 
-
-
     /**
-     *
      * @param parentId
      * @return
      */
     @RequestMapping("/getFuncTree")
     @ResponseBody
-    public String getFuncTree(Long parentId){
-       String functree= menuService.queryTree(null,parentId);
-       return functree;
+    public String getFuncTree(Long parentId) {
+        String functree = menuService.queryTree(null, parentId);
+        return functree;
     }
-
 
 
     @RequestMapping("/saveOrUpdate")
@@ -67,24 +64,36 @@ public class MenuController extends BaseController {
             return jsonStrAndState("", false, e.getMessage());
         }
     }
+
     @RequestMapping("/menuInfo")
     @ResponseBody
-    public String getMenuInfo(Long id){
-        MenuModel menuModel=menuService.getMenuModelById(id);
-        return jsonStrAndState(menuModel,true,"查询成功");
+    public String getMenuInfo(Long id) {
+        MenuModel menuModel = menuService.getMenuModelById(id);
+        return jsonStrAndState(menuModel, true, "查询成功");
     }
 
 
     @RequestMapping("/getPages")
     @ResponseBody
     public String getMenuPage(PageModel pageModel, MenuModel param) {
-        MenuModel menuModel=menuService.getMenuModelById(param.getId());
-        List<MenuModel> menuModels=new ArrayList<MenuModel>();
+        MenuModel menuModel = menuService.getMenuModelById(param.getId());
+        List<MenuModel> menuModels = new ArrayList<MenuModel>();
         menuModels.add(menuModel);
-        PageModel model=createPage(menuModels.size(), menuModels, 0, 0);
+        PageModel model = createPage(menuModels.size(), menuModels, 0, 0);
         return jsonStrData(model);
     }
 
+    @RequestMapping("/deleteMenu")
+    @ResponseBody
+    public String deleteMenuById(Long id,Long parentId,String delType) {
+        try {
+            menuService.deleteMenuById(id,parentId,delType);
+            return jsonStrAndState(null,true,"删除成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return jsonStrAndState(null,false,"删除失败");
+    }
 
     @Override
     @RequestMapping("/main")

@@ -211,5 +211,8 @@
 
   </select>
 
+  <delete id="deleteByParentId" parameterType="java.lang.Long">
+    DELETE  FROM  tb_menu_info WHERE  parent_id=#{parentId}
+  </delete>
 
 </mapper>

@@ -30,6 +30,7 @@ msg.localRefreshTime = 50 * 1000;//状态刷新间隔时间
 /*============================================== 配置  ==============================================*/
 var queryDate = "";
 var sysID = "";
+var menuPanel=Ext.id();
 Ext.onReady(function () {
     var mainTabPanel = new Ext.TabPanel({
         id : 'mainTabPanel',
@@ -69,6 +70,7 @@ Ext.onReady(function () {
         layout: 'border',
         items: [new Ext.Panel({
             region: 'north',
+            id:menuPanel,
             frame: false,
             border: true,
             height: 28,
@@ -139,7 +141,7 @@ msg.stop = function () {
  *            obj
  */
 function loadMenus(obj) {
-    if (Ext.get("userName").dom.value == "oldoper") {
+    if (null!=Ext.get("userName") && Ext.get("userName").dom.value == "oldoper") {
         sw.Msg.warn('当前登录用户没有操作权限,请重新登录', function () {
             doLogout();
         });
@@ -196,7 +198,8 @@ function getFirstItems(tbItem, list) {
                 }
             }, handler: function () {
                 var curObj = this.currMyMenu;
-                if (curObj.leaf == "0" && null != curObj.path) {
+                //if (curObj.leaf == "0" && null != curObj.path) {
+                if(null!=curObj.path){
                     var path = curObj.path;
                     var node = {
                         id: curObj.id,
@@ -244,8 +247,8 @@ function getMenu(obj, parentMenu) {
             currMyMenu: currObj,//把菜单对象放入当前对象中
             handler: function () {
                 var curObj = this.currMyMenu;
-                console.log(curObj);
-                if (curObj.leaf == "0" && null != curObj.path) {
+                //if (curObj.leaf == "0" && null != curObj.path) {
+                if(null!=curObj.path){
                     var path =curObj.path;
                     var node = {
                         id: curObj.id,
