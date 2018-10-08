@@ -16,13 +16,13 @@
     <result column="version" jdbcType="BIGINT" property="version" />
     <result column="role_id" jdbcType="BIGINT" property="roleId" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="">
     id, sys_name, sys_des, sys_url, create_id, create_time, opera_id, opera_time, org_id, 
     state, remark, version, role_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
-    <include refid="Base_Column_List" />
+    <include refid="" />
     from tb_business_system
     where id = #{id,jdbcType=BIGINT}
   </select>
@@ -185,4 +185,24 @@
       role_id = #{roleId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="rowCount" resultType="java.lang.Integer">
+
+    select count(id) from tb_business_system where 1=1
+    <if test="null!=businessSystemModel.sysName">
+      and sys_name LIKE   CONCAT('%',#{businessSystemModel.sysName},'%')
+    </if>
+  </select>
+  <select id="queryPageBusinessSystems" resultMap="BaseResultMap">
+    select
+    <include refid="" />
+   from tb_business_system
+    where 1=1
+    <if test="null!=businessSystemModel.sysName">
+      and sys_name LIKE   CONCAT('%',#{businessSystemModel.sysName},'%')
+    </if>
+    order by id desc limit #{pageModel.start}, #{pageModel.limit}
+
+  </select>
+
 </mapper>

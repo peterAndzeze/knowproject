@@ -1,6 +1,12 @@
-var pageSize = 10;
-var width = parent.width - 220;
-var height = parent.height - 80;
+var pageSize=20;
+
+//窗口的实际宽度
+var iWidth = window.screen.width - 10;
+//窗口的实际高度
+//重设窗口大小时宽度修正
+var widthFix = 2;
+//重设窗口大小时高度修正
+var heightFix = 80;//原120
 // 查询条件
 var searchParams = {
 	group : null,
@@ -45,8 +51,7 @@ var ds = new Ext.data.JsonStore({
 	id : 'id',
 	root : 'records',
 	totalProperty : 'rowCount',
-	fields : ['id', 'type', 'cron', 'state', 'group',  'className']
-		// 'type', 'cron', 'state', 'group','isRun','className'
+	fields : ['id', 'sysName', 'sysDes', 'state', 'sysUrl']
 	});
 var pageConfig = {
 	'pageSize' : pageSize,
@@ -58,19 +63,16 @@ var sm = new Ext.grid.CheckboxSelectionModel({});
 
 var cm = new Ext.grid.ColumnModel([sm, sw.grid.createRowNumberer(pageConfig), {
 			header : '编号',
-			dataIndex : 'type'
+			dataIndex : 'id'
 		}, {
-			header : '类型',
-			dataIndex : 'type'
+			header : '业务系统名称',
+			dataIndex : 'sysName'
 		}, {
-			header : '组',
-			dataIndex : 'group'
+			header : '描述',
+			dataIndex : 'sysDes'
 		}, {
-			header : '类信息',
-			dataIndex : 'className'
-		},{
-			header:'cron',
-			dataIndex:'cron'
+			header : '系统地址',
+			dataIndex : 'sysUrl'
 		}, {
 			header : '数据状态',
 			dataIndex : 'state',
@@ -88,13 +90,13 @@ var cm = new Ext.grid.ColumnModel([sm, sw.grid.createRowNumberer(pageConfig), {
 			width:200,
 			renderer : function(value, metadata, record) {
 				var btn = '';
-				btn += '<button onclick="deletequartz(\'' + record.data.id
+				btn += '<button onclick="deleteAppname(\'' + record.data.id
 						+ '\')">删除</button>';
-				btn += '<button onclick="editquartz(\'' + record.data.id
+				btn += '<button onclick="editAppname(\'' + record.data.id
 						+ '\')">编辑</button>';
-				btn += '<button onclick="pausedquartz(\'' + record.data.id
+				btn += '<button onclick="pausedAppname(\'' + record.data.id
 						+ '\')">暂停</button>';	
-				btn += '<button onclick="resumequartz(\'' + record.data.id
+				btn += '<button onclick="resumeAppname(\'' + record.data.id
 						+ '\')">恢复</button>';		
 						
 				return btn;
@@ -106,18 +108,17 @@ var pageConfig = {
 	'ds' : ds,
 	'record_start' : 0
 };
-
 var buttons = [sw.menu.createBtn('查询', 'bsearch', search), '-',
 		sw.menu.createBtn('清空条件', 'bapplication_delete', clearSearch), '-',
-		sw.menu.createBtn('新增', 'badd', addquartz)];
-var pageBar = sw.grid.createPagebar(pageConfig, buttons);
+		sw.menu.createBtn('新增', 'badd', addAppname)];
+var pageBar = sw.grid.createNewPagebar(pageConfig);
 
 var topBar = [{
 			xtype : 'panel',
 			id : 'topBarId',
 			border : false,
-			width : width,
-			items : [{
+			width:iWidth,
+			items : [ {
 						xtype : 'toolbar',
 						items : [{
 									xtype : 'label',
@@ -137,25 +138,24 @@ var topBar = [{
 									editable : false,
 									width : 200,
 									anchor : '90%'
-								}]
-					}, pageBar]
+								},buttons]
+					}]
 		}];
-
+console.log(window.frames);
 var grid = new Ext.grid.GridPanel({
 			id : "appname",
-			layout : "fit",
+			layoput:'fit',
 			autoScroll : true,
 			stripeRows : true,
 			loadMask : true,
 			ds : ds,
 			cm : cm,
 			sm : sm,
-			autoHeight : true,
-			width : width,
-			viewConfig : {
+    		viewConfig : {
 				forceFit : true
 			},
-			tbar : topBar
+			tbar : topBar,
+    		bbar :　pageBar
 		});
 
 // grid.render("sunwei");
@@ -169,7 +169,7 @@ grid.getStore().load({
 
 /** ********************业务操作函数**************************** */
 // 新增
-function addquartz() {
+function addAppname() {
 	var fields = [{
 				id : 'type',
 				fieldLabel : '类型',
@@ -224,7 +224,7 @@ function addquartz() {
 			}];
 
 	var form = new Ext.form.FormPanel({
-				id : "quartzForm",
+				id : "AppnameForm",
 				baseCls : 'x-plain',
 				labelWidth : 100,
 				labelAlign : 'right',
@@ -236,9 +236,9 @@ function addquartz() {
 				buttons : [{
 					text : '保存',
 					handler : function() {
-						sw.ajax.submit("saveOrUpdateQuartz", "quartzForm",
+						sw.ajax.submit("saveOrUpdateAppname", "AppnameForm",
 								function(result) {
-									Ext.getCmp("quartzWin").close();
+									Ext.getCmp("AppnameWin").close();
 									grid.store.reload();
 									sw.Msg.info(result.msg);
 								});
@@ -246,23 +246,23 @@ function addquartz() {
 				}, {
 					text : '关闭',
 					handler : function() {
-						Ext.getCmp("quartzWin").close();
+						Ext.getCmp("AppnameWin").close();
 					}
 				}]
 			});
 	var title = '新建字典';
-	var formWin = sw.util.openDialog("quartzWin", form, null, 400, 300, title);
+	var formWin = sw.util.openDialog("AppnameWin", form, null, 400, 300, title);
 	formWin.show();
 }
 
 // 删除
 
-function deletequartz(id) {
+function deleteAppname(id) {
 	sw.Msg.confirm("温馨提示", "确认删除吗？", function(btn, text) {
 				if ('yes' != btn) {
 					return;
 				}
-				sw.ajax.request('deleteQuartz', {
+				sw.ajax.request('deleteAppname', {
 							'id' : id
 						}, function(result) {
 							sw.Msg.info(result.msg);
@@ -278,7 +278,7 @@ function deletequartz(id) {
 
 // 编辑
 
-function editquartz(id) {
+function editAppname(id) {
 	var fields = [{
 				id : 'className',
 				fieldLabel : '类信息',
@@ -298,7 +298,7 @@ function editquartz(id) {
 			}];
 
 	var form = new Ext.form.FormPanel({
-				id : "quartzForm",
+				id : "AppnameForm",
 				baseCls : 'x-plain',
 				labelWidth : 100,
 				labelAlign : 'right',
@@ -310,9 +310,9 @@ function editquartz(id) {
 				buttons : [{
 					text : '保存',
 					handler : function() {
-						sw.ajax.submit("saveOrUpdateQuartz", "quartzForm",
+						sw.ajax.submit("saveOrUpdateAppname", "AppnameForm",
 								function(result) {
-									Ext.getCmp("quartzWin").close();
+									Ext.getCmp("AppnameWin").close();
 									grid.store.reload();
 									sw.Msg.info(result.msg);
 								});
@@ -320,23 +320,23 @@ function editquartz(id) {
 				}, {
 					text : '关闭',
 					handler : function() {
-						Ext.getCmp("quartzWin").close();
+						Ext.getCmp("AppnameWin").close();
 					}
 				}]
 			});
 	var title = '更新定时任务';
-	var formWin = sw.util.openDialog("quartzWin", form, null, 300, 200, title);
-	sw.ajax.request("getQuartzInfo", {
+	var formWin = sw.util.openDialog("AppnameWin", form, null, 300, 200, title);
+	sw.ajax.request("getAppnameInfo", {
 				'id' : id
 			}, function(result) {
-				sw.form.setValue("quartzForm", result);
+				sw.form.setValue("AppnameForm", result);
 				var statusId = 'state_' + (result.state==2? 2 : 3);
 				Ext.getCmp(statusId).setValue(true);
 				formWin.show();
 			}, true);
 }
 
-function pausedquartz(id){
+function pausedAppname(id){
 	sw.ajax.request('paused', {'id' : id}, function(result) {
 				sw.Msg.info(result.msg);
 				grid.getStore().load({
@@ -348,7 +348,7 @@ function pausedquartz(id){
 			});
 }
 
-function resumequartz(id ){
+function resumeAppname(id ){
 	sw.ajax.request('resume', {'id' : id}, function(result) {
 				sw.Msg.info(result.msg);
 				grid.getStore().load({

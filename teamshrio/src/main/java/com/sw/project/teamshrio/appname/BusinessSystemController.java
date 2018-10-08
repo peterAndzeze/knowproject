@@ -2,6 +2,7 @@ package com.sw.project.teamshrio.appname;
 
 import com.sw.project.teamshrio.framework.spring.BaseController;
 import com.sw.project.teamshrio.util.PageModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/appname")
 public class BusinessSystemController extends BaseController {
+    @Autowired
+    BusinessSystemService businessSystemService;
     @RequestMapping("/main")
     @Override
     public String getPath(HttpServletRequest request) {
@@ -22,7 +25,8 @@ public class BusinessSystemController extends BaseController {
     @RequestMapping("/page")
     @ResponseBody
     public String queryPageBusinessSystems(PageModel pageModel,BusinessSystemModel businessSystemModel){
-
+        pageModel=businessSystemService.queryPageBusinessSystem(pageModel,businessSystemModel);
+        return jsonStrData(pageModel);
     }
 
 

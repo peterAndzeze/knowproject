@@ -108,7 +108,7 @@ sw.grid.createRowNumbererNoPage = function(){
  *            config
  * @return {}
  */
-sw.grid.createPagebar = function(config,subItems){
+sw.grid.createPagebar = function(subItems,config){
 	if(!subItems) {
 		subItems = [];
 	}
@@ -119,26 +119,26 @@ sw.grid.createPagebar = function(config,subItems){
 		if(!activePage){
 			activePage = 1;
 		}
-		
+
 		if(!totalPage){
 			totalPage = 1;
 		}
-		
+
 		var rangeStart = activePage + 1;
 		var rangeLimit;
 		var pageRange = [];
-		
+
 		if(showPage > totalPage - activePage){
 			rangeLimit = totalPage;
 		}
 		else{
 			rangeLimit = showPage + activePage;
 		}
-		
+
 		for(var i = rangeStart; i <= rangeLimit; i++){
 			pageRange.push(new Array(i,i));
 		}
-		
+
 		return pageRange;
 	}
 	return new Ext.PagingToolbar({
@@ -165,6 +165,62 @@ sw.grid.createPagebar = function(config,subItems){
                 }
             }
 	});
+}
+
+sw.grid.createNewPagebar = function(config){
+
+    var pageRange = [];
+    var showPage = 15;
+    var comBoxId = Ext.id();
+    function setPageRange(showPage,activePage,totalPage){
+        if(!activePage){
+            activePage = 1;
+        }
+
+        if(!totalPage){
+            totalPage = 1;
+        }
+
+        var rangeStart = activePage + 1;
+        var rangeLimit;
+        var pageRange = [];
+
+        if(showPage > totalPage - activePage){
+            rangeLimit = totalPage;
+        }
+        else{
+            rangeLimit = showPage + activePage;
+        }
+
+        for(var i = rangeStart; i <= rangeLimit; i++){
+            pageRange.push(new Array(i,i));
+        }
+
+        return pageRange;
+    }
+    return new Ext.PagingToolbar({
+        pageSize: config.pageSize,
+        store: config.ds,
+        afterPageText: '页/共<b>{0}</b>页',
+        beforePageText: '第',
+        displayInfo: true,
+        displayMsg: '第<b>{0}</b>-<b>{1}</b>条/共<b>{2}</b>条',
+        emptyMsg: '<b>没有数据</b>',
+        firstText: '首页',
+        prevText: '上一页',
+        nextText: '下一页',
+        lastText: '尾页',
+        // refreshText: '刷新',
+        autoWidth: true,
+        onFirstLayout : function(){//增加这个配置
+            if(this.dsLoaded){
+                this.onLoad.apply(this, this.dsLoaded);
+            }
+            if(this.rendered && this.refresh){
+                this.refresh.hide();
+            }
+        }
+    });
 }
 
 /**

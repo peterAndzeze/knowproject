@@ -297,8 +297,8 @@ sw.util.openIframeTab = function (id,url,iconCls,parentId,title,noLoading){
 			iconCls:iconCls,
 			autoScroll:false,
 			html:frameUrl,
-			//autoLoad:url,
-			closable:true
+            //autoLoad:url,
+            closable:true
 		});
 		tab.show();//先显示标签页，再加载内容
 	}else{

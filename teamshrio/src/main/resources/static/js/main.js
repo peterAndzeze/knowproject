@@ -12,7 +12,7 @@ var iHeight = window.screen.height - 65;
 //重设窗口大小时宽度修正
 var widthFix = 2;
 //重设窗口大小时高度修正
-var heightFix = 80;//原120
+var heightFix = 120;//原120
 //桌面面板
 var desktoptabDivId = 'desktopTab';
 
