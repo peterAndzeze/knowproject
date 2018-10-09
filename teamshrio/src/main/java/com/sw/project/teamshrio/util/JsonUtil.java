@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 
 /**
  * 
@@ -50,6 +51,15 @@ public class JsonUtil {
 			}
 		}
 		return jsonObject.toString();
+	}
+
+	/**
+	 * 保留null值
+	 * @param object
+	 * @return
+	 */
+	public static String objectToJsonIncludeNull(Object object){
+		return  JSON.toJSONString(object, SerializerFeature.WRITE_MAP_NULL_FEATURES);
 	}
 
 	/**

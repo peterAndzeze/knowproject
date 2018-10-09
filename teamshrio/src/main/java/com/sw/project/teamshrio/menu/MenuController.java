@@ -77,9 +77,9 @@ public class MenuController extends BaseController {
     @ResponseBody
     public String getMenuPage(PageModel pageModel, MenuModel param) {
         MenuModel menuModel = menuService.getMenuModelById(param.getId());
-        List<MenuModel> menuModels = new ArrayList<MenuModel>();
-        menuModels.add(menuModel);
-        PageModel model = createPage(menuModels.size(), menuModels, 0, 0);
+        List<MenuModel> childMenus=menuService.getmenusByParentId(null,param.getId());
+        childMenus.add(menuModel);
+        PageModel model = createPage(childMenus.size(), childMenus, 0, 0);
         return jsonStrData(model);
     }
 

@@ -69,10 +69,21 @@ public class MenuService {
         if(null==parentId){
             parentId=-1L;
         }
-        List<MenuModel> menuModels = menuModelMapper.queryMenus(null, parentId);
+        List<MenuModel> menuModels=getmenusByParentId(userId,parentId);
         String mennus = DataRelationUtil.createMenus(menuModels, parentId);
         return mennus;
     }
+
+    /**
+     * 子菜单信息
+     * @param userId
+     * @param parentId
+     * @return
+     */
+    public  List<MenuModel> getmenusByParentId(Long userId,Long parentId){
+        return  menuModelMapper.queryMenus(userId, parentId);
+    }
+
 
     /**
      * 新增菜单

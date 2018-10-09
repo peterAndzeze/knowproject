@@ -1,5 +1,6 @@
 package com.sw.project.teamshrio.framework.spring;
 
+import com.alibaba.fastjson.JSONObject;
 import com.sw.project.teamshrio.util.JsonUtil;
 import com.sw.project.teamshrio.util.PageModel;
 
@@ -97,6 +98,16 @@ public abstract class BaseController {
 		String str = JsonUtil.objectToJsonExcludeProperty(data);
 		return str;
 	}
+
+	/**
+	 * 分页数据返回元素一个不能少
+	 * @param data
+	 * @return
+	 */
+	protected String jsonStrDataForPage(Object data){
+		return JsonUtil.objectToJsonIncludeNull(data);
+	}
+
 	/**
 	 * 
 	 * @Title: jsonStrListData  

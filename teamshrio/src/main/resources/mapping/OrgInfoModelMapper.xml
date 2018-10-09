@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sw.project.teamshrio.orginfo.OrgInfoModelMapper">
+  <resultMap id="BaseResultMap" type="com.sw.project.teamshrio.orginfo.OrgInfoModel">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="orgcode" jdbcType="VARCHAR" property="orgcode" />
+    <result column="orgname" jdbcType="VARCHAR" property="orgname" />
+    <result column="orgdesc" jdbcType="VARCHAR" property="orgdesc" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="create_id" jdbcType="BIGINT" property="createId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="opera_id" jdbcType="BIGINT" property="operaId" />
+    <result column="opera_time" jdbcType="TIMESTAMP" property="operaTime" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+    <result column="leaf" jdbcType="CHAR" property="leaf"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, orgcode, orgname, orgdesc, state, parent_id, create_id, create_time, opera_id, 
+    opera_time, version,leaf
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_org_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_org_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sw.project.teamshrio.orginfo.OrgInfoModel">
+    insert into tb_org_info (id, orgcode, orgname, 
+      orgdesc, state, parent_id, 
+      create_id, create_time, opera_id, 
+      opera_time, version,leaf)
+    values (#{id,jdbcType=BIGINT}, #{orgcode,jdbcType=VARCHAR}, #{orgname,jdbcType=VARCHAR}, 
+      #{orgdesc,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, #{parentId,jdbcType=BIGINT}, 
+      #{createId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{operaId,jdbcType=BIGINT}, 
+      #{operaTime,jdbcType=TIMESTAMP}, #{version,jdbcType=BIGINT}),#{leaf,jdbcType=CHAR}
+  </insert>
+  <insert id="insertSelective" parameterType="com.sw.project.teamshrio.orginfo.OrgInfoModel">
+    insert into tb_org_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orgcode != null">
+        orgcode,
+      </if>
+      <if test="orgname != null">
+        orgname,
+      </if>
+      <if test="orgdesc != null">
+        orgdesc,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="operaId != null">
+        opera_id,
+      </if>
+      <if test="operaTime != null">
+        opera_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="leaf">
+        leaf,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orgcode != null">
+        #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null">
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="orgdesc != null">
+        #{orgdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operaId != null">
+        #{operaId,jdbcType=BIGINT},
+      </if>
+      <if test="operaTime != null">
+        #{operaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="null!=leaf">
+        #{leaf,jdbcType=CHAR}
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sw.project.teamshrio.orginfo.OrgInfoModel">
+    update tb_org_info
+    <set>
+      <if test="orgcode != null">
+        orgcode = #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgname != null">
+        orgname = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="orgdesc != null">
+        orgdesc = #{orgdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operaId != null">
+        opera_id = #{operaId,jdbcType=BIGINT},
+      </if>
+      <if test="operaTime != null">
+        opera_time = #{operaTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="null!=leaf" >
+         leaf=#{leaf,jdbcType=CHAR}
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sw.project.teamshrio.orginfo.OrgInfoModel">
+    update tb_org_info
+    set orgcode = #{orgcode,jdbcType=VARCHAR},
+      orgname = #{orgname,jdbcType=VARCHAR},
+      orgdesc = #{orgdesc,jdbcType=VARCHAR},
+      state = #{state,jdbcType=CHAR},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      create_id = #{createId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      opera_id = #{operaId,jdbcType=BIGINT},
+      opera_time = #{operaTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=BIGINT}
+      leaf=#{leaf,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getOrgInfoByParentId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_org_info
+    where 1=1
+    <!--<if test="null!=roleId">
+      and role_id=#{roleId}
+    </if>-->
+    <if test="null!=parentId">
+      parent_id = #{parentId,jdbcType=BIGINT}
+    </if>
+  </select>
+
+  <delete id="deleteByParentId" parameterType="java.lang.Long">
+    DELETE FROM tb_org_info where parent_id=#{parentId}
+  </delete>
+</mapper>

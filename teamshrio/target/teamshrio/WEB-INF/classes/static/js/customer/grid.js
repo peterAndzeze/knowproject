@@ -108,7 +108,7 @@ sw.grid.createRowNumbererNoPage = function(){
  *            config
  * @return {}
  */
-sw.grid.createPagebar = function(subItems,config){
+sw.grid.createPagebar = function(config,subItems){
 	if(!subItems) {
 		subItems = [];
 	}
