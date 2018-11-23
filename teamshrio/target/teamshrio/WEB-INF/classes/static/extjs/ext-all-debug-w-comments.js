@@ -1303,7 +1303,7 @@ Ext.DomQuery = function(){
     eval("var batch = 30803;");    	
 
     // Retrieve the child node from a particular
-    // parent at the specified index.
+    // parent at the specified admin.
     function child(parent, index){
         var i = 0,
             n = parent.firstChild;
@@ -1872,7 +1872,7 @@ Ext.DomQuery = function(){
         /**
          * Collection of matching regular expressions and code snippets.
          * Each capture group within () will be replace the {} in the select
-         * statement as specified by their index.
+         * statement as specified by their admin.
          */
         matchers : [{
                 re: /^\.([\w\-]+)/,
@@ -6010,7 +6010,7 @@ Ext.CompositeElementLite.prototype = {
         return me;
     },
     /**
-     * Returns a flyweight Element of the dom element object at the specified index
+     * Returns a flyweight Element of the dom element object at the specified admin
      * @param {Number} index
      * @return {Ext.Element}
      */
@@ -6046,7 +6046,7 @@ Ext.CompositeElementLite.prototype = {
      * <b>This is the flyweight (shared) Ext.Element instance, so if you require a
      * a reference to the dom node, use el.dom.</b></div></li>
      * <li><b>c</b> : Composite<div class="sub-desc">This Composite object.</div></li>
-     * <li><b>idx</b> : Number<div class="sub-desc">The zero-based index in the iteration.</div></li>
+     * <li><b>idx</b> : Number<div class="sub-desc">The zero-based admin in the iteration.</div></li>
      * </ul>
      * @param {Object} scope (optional) The scope (<i>this</i> reference) in which the function is executed. (defaults to the Element)
      * @return {CompositeElement} this
@@ -6086,7 +6086,7 @@ Ext.CompositeElementLite.prototype = {
      * @param {String/Function} selector A string CSS selector or a comparison function.
      * The comparison function will be called with the following arguments:<ul>
      * <li><code>el</code> : Ext.Element<div class="sub-desc">The current DOM element.</div></li>
-     * <li><code>index</code> : Number<div class="sub-desc">The current index within the collection.</div></li>
+     * <li><code>admin</code> : Number<div class="sub-desc">The current admin within the collection.</div></li>
      * </ul>
      * @return {CompositeElement} this
      */
@@ -6109,9 +6109,9 @@ Ext.CompositeElementLite.prototype = {
     },
 
     /**
-     * Find the index of the passed element within the composite collection.
+     * Find the admin of the passed element within the composite collection.
      * @param el {Mixed} The id of an element, or an Ext.Element, or an HtmlElement to find within the composite collection.
-     * @return Number The index of the passed Ext.Element in the composite collection, or -1 if not found.
+     * @return Number The admin of the passed Ext.Element in the composite collection, or -1 if not found.
      */
     indexOf : function(el){
         return this.elements.indexOf(this.transformElement(el));
@@ -6119,7 +6119,7 @@ Ext.CompositeElementLite.prototype = {
 
     /**
     * Replaces the specified element with the passed element.
-    * @param {Mixed} el The id of an element, the Element itself, the index of the element in this composite
+    * @param {Mixed} el The id of an element, the Element itself, the admin of the element in this composite
     * to replace.
     * @param {Mixed} replacement The id of an element or the Element itself.
     * @param {Boolean} domReplace (Optional) True to remove and replace the element in the document too.
@@ -7927,7 +7927,7 @@ Ext.Loader = Ext.apply({}, {
             me          = this;
         
         /**
-         * Loads a particular file from the fileList by index. This is used when preserving order
+         * Loads a particular file from the fileList by admin. This is used when preserving order
          */
         var loadFileIndex = function(index) {
             head.appendChild(
@@ -10890,8 +10890,8 @@ Ext.Element.addMethods({
     right: &lt;Element's rightmost bound>
 }
 </code></pre>
-     * The returned object may also be addressed as an Array where index 0 contains the X position
-     * and index 1 contains the Y position. So the result may also be used for {@link #setXY}
+     * The returned object may also be addressed as an Array where admin 0 contains the X position
+     * and admin 1 contains the Y position. So the result may also be used for {@link #setXY}
      */
 	getBox : function(contentBox, local) {	    
 	    var me = this,
@@ -11377,7 +11377,7 @@ Ext.apply(Ext.CompositeElementLite.prototype, {
 
     /**
     * Removes the specified element(s).
-    * @param {Mixed} el The id of an element, the Element itself, the index of the element in this composite
+    * @param {Mixed} el The id of an element, the Element itself, the admin of the element in this composite
     * or an array of any of those.
     * @param {Boolean} removeDom (optional) True to also remove the element from the document
     * @return {CompositeElement} this
@@ -11447,8 +11447,8 @@ Ext.CompositeElement = Ext.extend(Ext.CompositeElementLite, {
     */
 
     /**
-     * Returns the Element object at the specified index
-     * @param {Number} index
+     * Returns the Element object at the specified admin
+     * @param {Number} admin
      * @return {Ext.Element}
      */
 
@@ -11459,13 +11459,13 @@ Ext.CompositeElement = Ext.extend(Ext.CompositeElementLite, {
      * <code>element</code>. If the supplied function returns <tt>false</tt>,
      * iteration stops. This function is called with the following arguments:
      * <div class="mdetail-params"><ul>
-     * <li><code>element</code> : <i>Ext.Element</i><div class="sub-desc">The element at the current <code>index</code>
+     * <li><code>element</code> : <i>Ext.Element</i><div class="sub-desc">The element at the current <code>admin</code>
      * in the <code>composite</code></div></li>
      * <li><code>composite</code> : <i>Object</i> <div class="sub-desc">This composite.</div></li>
-     * <li><code>index</code> : <i>Number</i> <div class="sub-desc">The current index within the <code>composite</code> </div></li>
+     * <li><code>admin</code> : <i>Number</i> <div class="sub-desc">The current admin within the <code>composite</code> </div></li>
      * </ul></div>
      * @param {Object} scope (optional) The scope (<code><this</code> reference) in which the specified function is executed.
-     * Defaults to the <code>element</code> at the current <code>index</code>
+     * Defaults to the <code>element</code> at the current <code>admin</code>
      * within the composite.
      * @return {CompositeElement} this
      */
@@ -13081,7 +13081,7 @@ Ext.apply(Date.prototype, {
 
     /**
      * Get the first day of the current month, adjusted for leap year.  The returned value
-     * is the numeric day index within the week (0-6) which can be used in conjunction with
+     * is the numeric day admin within the week (0-6) which can be used in conjunction with
      * the {@link #monthNames} array to retrieve the textual day name.
      * Example:
      * <pre><code>
@@ -13097,7 +13097,7 @@ document.write(Date.dayNames[dt.getFirstDayOfMonth()]); //output: 'Monday'
 
     /**
      * Get the last day of the current month, adjusted for leap year.  The returned value
-     * is the numeric day index within the week (0-6) which can be used in conjunction with
+     * is the numeric day admin within the week (0-6) which can be used in conjunction with
      * the {@link #monthNames} array to retrieve the textual day name.
      * Example:
      * <pre><code>
@@ -13404,7 +13404,7 @@ Ext.util.MixedCollection = function(allowFunctions, keyFn){
         /**
          * @event add
          * Fires when an item is added to the collection.
-         * @param {Number} index The index at which the item was added.
+         * @param {Number} admin The admin at which the item was added.
          * @param {Object} o The item added.
          * @param {String} key The key associated with the added item.
          */
@@ -13556,7 +13556,7 @@ mc.add(otherEl);
      * Executes the specified function once for every item in the collection, passing the following arguments:
      * <div class="mdetail-params"><ul>
      * <li><b>item</b> : Mixed<p class="sub-desc">The collection item</p></li>
-     * <li><b>index</b> : Number<p class="sub-desc">The item's index</p></li>
+     * <li><b>admin</b> : Number<p class="sub-desc">The item's admin</p></li>
      * <li><b>length</b> : Number<p class="sub-desc">The total number of items in the collection</p></li>
      * </ul></div>
      * The function should return a boolean value. Returning false from the function will stop the iteration.
@@ -13601,8 +13601,8 @@ mc.add(otherEl);
     },
 
     /**
-     * Inserts an item at the specified index in the collection. Fires the {@link #add} event when complete.
-     * @param {Number} index The index to insert the item at.
+     * Inserts an item at the specified admin in the collection. Fires the {@link #add} event when complete.
+     * @param {Number} index The admin to insert the item at.
      * @param {String} key The key to associate with the new item, or the item itself.
      * @param {Object} o (optional) If the second parameter was a key, the new item.
      * @return {Object} The item inserted.
@@ -13640,8 +13640,8 @@ mc.add(otherEl);
     },
 
     /**
-     * Remove an item from a specified index in the collection. Fires the {@link #remove} event when complete.
-     * @param {Number} index The index within the collection of the item to remove.
+     * Remove an item from a specified admin in the collection. Fires the {@link #remove} event when complete.
+     * @param {Number} index The admin within the collection of the item to remove.
      * @return {Object} The item removed or false if no item was removed.
      */
     removeAt : function(index){
@@ -13678,28 +13678,28 @@ mc.add(otherEl);
     },
 
     /**
-     * Returns index within the collection of the passed Object.
-     * @param {Object} o The item to find the index of.
-     * @return {Number} index of the item. Returns -1 if not found.
+     * Returns admin within the collection of the passed Object.
+     * @param {Object} o The item to find the admin of.
+     * @return {Number} admin of the item. Returns -1 if not found.
      */
     indexOf : function(o){
         return this.items.indexOf(o);
     },
 
     /**
-     * Returns index within the collection of the passed key.
-     * @param {String} key The key to find the index of.
-     * @return {Number} index of the key.
+     * Returns admin within the collection of the passed key.
+     * @param {String} key The key to find the admin of.
+     * @return {Number} admin of the key.
      */
     indexOfKey : function(key){
         return this.keys.indexOf(key);
     },
 
     /**
-     * Returns the item associated with the passed key OR index.
-     * Key has priority over index.  This is the equivalent
+     * Returns the item associated with the passed key OR admin.
+     * Key has priority over admin.  This is the equivalent
      * of calling {@link #key} first, then if nothing matched calling {@link #itemAt}.
-     * @param {String/Number} key The key or index of the item.
+     * @param {String/Number} key The key or admin of the item.
      * @return {Object} If the item is found, returns the item.  If the item was not found, returns <tt>undefined</tt>.
      * If an item was found, but is a Class, returns <tt>null</tt>.
      */
@@ -13710,9 +13710,9 @@ mc.add(otherEl);
     },
 
     /**
-     * Returns the item at the specified index.
-     * @param {Number} index The index of the item.
-     * @return {Object} The item at the specified index.
+     * Returns the item at the specified admin.
+     * @param {Number} index The admin of the item.
+     * @return {Object} The item at the specified admin.
      */
     itemAt : function(index){
         return this.items[index];
@@ -13777,7 +13777,7 @@ mc.add(otherEl);
      * Performs the actual sorting based on a direction and a sorting function. Internally,
      * this creates a temporary array of all items in the MixedCollection, sorts it and then writes
      * the sorted array data back into this.items and this.keys
-     * @param {String} property Property to sort by ('key', 'value', or 'index')
+     * @param {String} property Property to sort by ('key', 'value', or 'admin')
      * @param {String} dir (optional) Direction to sort 'ASC' or 'DESC'. Defaults to 'ASC'.
      * @param {Function} fn (optional) Comparison function that defines the sort order.
      * Defaults to sorting by numeric value.
@@ -13834,9 +13834,9 @@ mc.add(otherEl);
     },
 
     /**
-     * Reorders each of the items based on a mapping from old index to new index. Internally this
+     * Reorders each of the items based on a mapping from old admin to new admin. Internally this
      * just translates into a sort. The 'sort' event is fired whenever reordering has occured.
-     * @param {Object} mapping Mapping from old item index to new item index
+     * @param {Object} mapping Mapping from old item admin to new item admin
      */
     reorder: function(mapping) {
         this.suspendEvents();
@@ -13887,8 +13887,8 @@ mc.add(otherEl);
 
     /**
      * Returns a range of items in this collection
-     * @param {Number} startIndex (optional) The starting index. Defaults to 0.
-     * @param {Number} endIndex (optional) The ending index. Defaults to the last item.
+     * @param {Number} startIndex (optional) The starting admin. Defaults to 0.
+     * @param {Number} endIndex (optional) The ending admin. Defaults to the last item.
      * @return {Array} An array of items
      */
     getRange : function(start, end){
@@ -13952,14 +13952,14 @@ mc.add(otherEl);
     },
 
     /**
-     * Finds the index of the first matching object in this collection by a specific property/value.
+     * Finds the admin of the first matching object in this collection by a specific property/value.
      * @param {String} property The name of a property on your objects.
      * @param {String/RegExp} value A string that the property values
      * should start with or a RegExp to test against the property.
-     * @param {Number} start (optional) The index to start searching at (defaults to 0).
+     * @param {Number} start (optional) The admin to start searching at (defaults to 0).
      * @param {Boolean} anyMatch (optional) True to match any part of the string, not just the beginning.
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison.
-     * @return {Number} The matched index or -1
+     * @return {Number} The matched admin or -1
      */
     findIndex : function(property, value, start, anyMatch, caseSensitive){
         if(Ext.isEmpty(value, false)){
@@ -13972,12 +13972,12 @@ mc.add(otherEl);
     },
 
     /**
-     * Find the index of the first matching object in this collection by a function.
+     * Find the admin of the first matching object in this collection by a function.
      * If the function returns <i>true</i> it is considered a match.
      * @param {Function} fn The function to be called, it will receive the args o (the object), k (the key).
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this MixedCollection.
-     * @param {Number} start (optional) The index to start searching at (defaults to 0).
-     * @return {Number} The matched index or -1
+     * @param {Number} start (optional) The admin to start searching at (defaults to 0).
+     * @return {Number} The matched admin or -1
      */
     findIndexBy : function(fn, scope, start){
         var k = this.keys, it = this.items;
@@ -14032,10 +14032,10 @@ mc.add(otherEl);
 });
 /**
  * This method calls {@link #item item()}.
- * Returns the item associated with the passed key OR index. Key has priority
- * over index.  This is the equivalent of calling {@link #key} first, then if
+ * Returns the item associated with the passed key OR admin. Key has priority
+ * over admin.  This is the equivalent of calling {@link #key} first, then if
  * nothing matched calling {@link #itemAt}.
- * @param {String/Number} key The key or index of the item.
+ * @param {String/Number} key The key or admin of the item.
  * @return {Object} If the item is found, returns the item.  If the item was
  * not found, returns <tt>undefined</tt>. If an item was found, but is a Class,
  * returns <tt>null</tt>.
@@ -14231,7 +14231,7 @@ Ext.util.Format = function() {
         /**
          * Returns a substring from within an original string
          * @param {String} value The original text
-         * @param {Number} start The start index of the substring
+         * @param {Number} start The start admin of the substring
          * @param {Number} length The length of the substring
          * @return {String} The substring
          */
@@ -14579,7 +14579,7 @@ var data = {
  * array.</li>
  * <li>If <tt>for="."</tt> is specified, the data object provided is examined.</li>
  * <li>While processing an array, the special variable <tt>{#}</tt>
- * will provide the current array index + 1 (starts at 1, not 0).</li>
+ * will provide the current array admin + 1 (starts at 1, not 0).</li>
  * </ul>
  * </p>
  * <pre><code>
@@ -14592,7 +14592,7 @@ var data = {
 var tpl = new Ext.XTemplate(
     '&lt;p>Kids: ',
     '&lt;tpl <b>for</b>=".">',       // process the data.kids node
-        '&lt;p>{#}. {name}&lt;/p>',  // use current array index to autonumber
+        '&lt;p>{#}. {name}&lt;/p>',  // use current array admin to autonumber
     '&lt;/tpl>&lt;/p>'
 );
 tpl.overwrite(panel.body, data.kids); // pass the kids property of the data object
@@ -14613,7 +14613,7 @@ tpl.overwrite(panel.body, data);  // pass the root node of the data object
  * </code></pre>
  * <p>Flat arrays that contain values (and not objects) can be auto-rendered
  * using the special <b><tt>{.}</tt></b> variable inside a loop.  This variable
- * will represent the value of the array at the current index:</p>
+ * will represent the value of the array at the current admin:</p>
  * <pre><code>
 var tpl = new Ext.XTemplate(
     '&lt;p>{name}\&#39;s favorite beverages:&lt;/p>',
@@ -14712,7 +14712,7 @@ tpl.overwrite(panel.body, data);
  * <li><b><tt>values</tt></b>: The values in the current scope. If you are using
  * scope changing sub-templates, you can change what <tt>values</tt> is.</li>
  * <li><b><tt>parent</tt></b>: The scope (values) of the ancestor template.</li>
- * <li><b><tt>xindex</tt></b>: If you are in a looping template, the index of the
+ * <li><b><tt>xindex</tt></b>: If you are in a looping template, the admin of the
  * loop you are in (1-based).</li>
  * <li><b><tt>xcount</tt></b>: If you are in a looping template, the total length
  * of the array you are looping.</li>
@@ -16678,7 +16678,7 @@ new Ext.FormPanel({
      * when no object reference is available.  Instead of using an <code>{@link #id}</code> with
      * {@link Ext}.{@link Ext#getCmp getCmp}, use <code>itemId</code> with
      * {@link Ext.Container}.{@link Ext.Container#getComponent getComponent} which will retrieve
-     * <code>itemId</code>'s or <tt>{@link #id}</tt>'s. Since <code>itemId</code>'s are an index to the
+     * <code>itemId</code>'s or <tt>{@link #id}</tt>'s. Since <code>itemId</code>'s are an admin to the
      * container's internal MixedCollection, the <code>itemId</code> is scoped locally to the container --
      * avoiding potential conflicts with {@link Ext.ComponentMgr} which requires a <b>unique</b>
      * <code>{@link #id}</code>.</p>
@@ -17157,7 +17157,7 @@ Ext.Foo = Ext.extend(Ext.Bar, {
      * Container. No sizing or positioning will be performed in this situation.</b></p>
      * @param {Element/HTMLElement/String} container (optional) The element this Component should be
      * rendered into. If it is being created from existing markup, this should be omitted.
-     * @param {String/Number} position (optional) The element ID or DOM node index within the container <b>before</b>
+     * @param {String/Number} position (optional) The element ID or DOM node admin within the container <b>before</b>
      * which this component will be inserted (defaults to appending to the end of the container)
      */
     render : function(container, position){
@@ -18274,7 +18274,7 @@ Ext.Action = Ext.extend(Object, {
  * @cfg {Object} dh DomHelper object config to create element with (defaults to {tag: 'div', cls: 'x-layer'}).
  * @cfg {Boolean} constrain False to disable constrain to viewport (defaults to true)
  * @cfg {String} cls CSS class to add to the element
- * @cfg {Number} zindex Starting z-index (defaults to 11000)
+ * @cfg {Number} zindex Starting z-admin (defaults to 11000)
  * @cfg {Number} shadowOffset Number of pixels to offset the shadow (defaults to 4)
  * @cfg {Boolean} useDisplay
  * Defaults to use css offsets to hide the Layer. Specify <tt>true</tt>
@@ -18709,10 +18709,10 @@ Ext.extend(Ext.Layer, Ext.Element, {
     },
 
     /**
-     * Sets the z-index of this layer and adjusts any shadow and shim z-indexes. The layer z-index is automatically
+     * Sets the z-admin of this layer and adjusts any shadow and shim z-indexes. The layer z-admin is automatically
      * incremented by two more than the value passed in so that it always shows above any shadow or shim (the shadow
-     * element, if any, will be assigned z-index + 1, and the shim element, if any, will be assigned the unmodified z-index).
-     * @param {Number} zindex The new z-index to set
+     * element, if any, will be assigned z-admin + 1, and the shim element, if any, will be assigned the unmodified z-admin).
+     * @param {Number} zindex The new z-admin to set
      * @return {this} The Layer
      */
     setZIndex : function(zindex){
@@ -18893,8 +18893,8 @@ Ext.Shadow.prototype = {
     },
 
     /**
-     * Adjust the z-index of this shadow
-     * @param {Number} zindex The new z-index
+     * Adjust the z-admin of this shadow
+     * @param {Number} zindex The new z-admin
      */
     setZIndex: function(z) {
         this.zIndex = z;
@@ -20214,8 +20214,8 @@ layoutConfig: {
 
     /**
      * @cfg {String/Number} activeItem
-     * A string component id or the numeric index of the component that should be initially activated within the
-     * container's layout on render.  For example, activeItem: 'item-1' or activeItem: 0 (index 0 = the first
+     * A string component id or the numeric admin of the component that should be initially activated within the
+     * container's layout on render.  For example, activeItem: 'item-1' or activeItem: 0 (admin 0 = the first
      * item in the container's collection).  activeItem only applies to layout styles that can display
      * items one at a time (like {@link Ext.layout.AccordionLayout}, {@link Ext.layout.CardLayout} and
      * {@link Ext.layout.FitLayout}).  Related to {@link Ext.layout.ContainerLayout#activeItem}.
@@ -20344,7 +20344,7 @@ items: [
              * A handler can return false to cancel the add.
              * @param {Ext.Container} this
              * @param {Ext.Component} component The component being added
-             * @param {Number} index The index at which the component will be added to the container's items collection
+             * @param {Number} admin The admin at which the component will be added to the container's items collection
              */
             'beforeadd',
             /**
@@ -20361,7 +20361,7 @@ items: [
              * Fires after any {@link Ext.Component} is added or inserted into the container.
              * @param {Ext.Container} this
              * @param {Ext.Component} component The component that was added
-             * @param {Number} index The index at which the component was added to the container's items collection
+             * @param {Number} admin The admin at which the component was added to the container's items collection
              */
             'add',
             /**
@@ -20525,10 +20525,10 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Inserts a Component into this Container at a specified index. Fires the
+     * Inserts a Component into this Container at a specified admin. Fires the
      * {@link #beforeadd} event before inserting, then fires the {@link #add} event after the
      * Component has been inserted.
-     * @param {Number} index The index at which the Component will be inserted
+     * @param {Number} index The admin at which the Component will be inserted
      * into the Container's items collection
      * @param {Ext.Component} component The child Component to insert.<br><br>
      * Ext uses lazy rendering, and will only render the inserted Component should
@@ -20921,7 +20921,7 @@ tb.{@link #doLayout}();             // refresh the layout
 
     /**
      * Get a component contained by this container (alias for items.get(key))
-     * @param {String/Number} key The index or id of the component
+     * @param {String/Number} key The admin or id of the component
      * @deprecated Should be removed in 4.0, since getComponent does the same thing.
      * @return {Ext.Component} Ext.Component
      */
@@ -21319,7 +21319,7 @@ Ext.Container.LAYOUTS['fit'] = Ext.layout.FitLayout;/**
  * This class is intended to be extended or created via the layout:'card' {@link Ext.Container#layout} config,
  * and should generally not need to be created directly via the new keyword.</p>
  * <p>The CardLayout's focal method is {@link #setActiveItem}.  Since only one panel is displayed at a time,
- * the only way to move from one Component to the next is by calling setActiveItem, passing the id or index of
+ * the only way to move from one Component to the next is by calling setActiveItem, passing the id or admin of
  * the next panel to display.  The layout itself does not provide a user interface for handling this navigation,
  * so that functionality must be provided by the developer.</p>
  * <p>In the following example, a simplistic wizard setup is demonstrated.  A button bar is added
@@ -21402,7 +21402,7 @@ Ext.layout.CardLayout = Ext.extend(Ext.layout.FitLayout, {
 
     /**
      * Sets the active (visible) item in the layout.
-     * @param {String/Number} item The string component id or numeric index of the item to activate
+     * @param {String/Number} item The string component id or numeric admin of the item to activate
      */
     setActiveItem : function(item){
         var ai = this.activeItem,
@@ -23556,7 +23556,7 @@ Ext.layout.AccordionLayout = Ext.extend(Ext.layout.FitLayout, {
 
     /**
      * Sets the active (expanded) item in the layout.
-     * @param {String/Number} item The string component id or numeric index of the item to activate
+     * @param {String/Number} item The string component id or numeric admin of the item to activate
      */
     setActiveItem : function(item){
         this.setActive(item, true);
@@ -24740,8 +24740,8 @@ Ext.layout.boxOverflow.Scroller = Ext.extend(Ext.layout.boxOverflow.None, {
     
     /**
      * @private
-     * Normalizes an item reference, string id or numerical index into a reference to the item
-     * @param {Ext.Component|String|Number} item The item reference, id or index
+     * Normalizes an item reference, string id or numerical admin into a reference to the item
+     * @param {Ext.Component|String|Number} item The item reference, id or admin
      * @return {Ext.Component} The item
      */
     getItem: function(item) {
@@ -24812,7 +24812,7 @@ Ext.layout.boxOverflow.Scroller = Ext.extend(Ext.layout.boxOverflow.None, {
     
     /**
      * Scrolls to the given component.
-     * @param {String|Number|Ext.Component} item The item to scroll to. Can be a numerical index, component id 
+     * @param {String|Number|Ext.Component} item The item to scroll to. Can be a numerical admin, component id
      * or a reference to the component itself.
      * @param {Boolean} animate True to animate the scrolling
      */
@@ -28713,7 +28713,7 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
     monthYearText : 'Choose a month (Control+Up/Down to move years)',
     /**
      * @cfg {Number} startDay
-     * Day index at which the week should begin, 0-based (defaults to 0, which is Sunday)
+     * Day admin at which the week should begin, 0-based (defaults to 0, which is Sunday)
      */
     startDay : 0,
     /**
@@ -28822,7 +28822,7 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Replaces any existing disabled days (by index, 0-6) with new values and refreshes the DatePicker.
+     * Replaces any existing disabled days (by admin, 0-6) with new values and refreshes the DatePicker.
      * @param {Array} disabledDays An array of disabled day indexes. See the {@link #disabledDays} config
      * for details on supported values.
      */
@@ -29779,7 +29779,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
      * @private
      * @property topThumbZIndex
      * @type Number
-     * The number used internally to set the z index of the top thumb (see promoteThumb for details)
+     * The number used internally to set the z admin of the top thumb (see promoteThumb for details)
      */
     topThumbZIndex: 10000,
 
@@ -29890,8 +29890,8 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
 
     /**
      * @private
-     * Moves the given thumb above all other by increasing its z-index. This is called when as drag
-     * any thumb, so that the thumb that was just dragged is always at the highest z-index. This is
+     * Moves the given thumb above all other by increasing its z-admin. This is called when as drag
+     * any thumb, so that the thumb that was just dragged is always at the highest z-admin. This is
      * required when the thumbs are stacked on top of each other at one of the ends of the slider's
      * range, which can result in the user not being able to move any of them.
      * @param {Ext.slider.Thumb} topThumb The thumb to move to the top
@@ -30321,7 +30321,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Returns the current value of the slider
-     * @param {Number} index The index of the thumb to return a value for
+     * @param {Number} index The admin of the thumb to return a value for
      * @return {Number} The current value of the slider
      */
     getValue : function(index) {
@@ -30405,8 +30405,8 @@ Ext.slider.SingleSlider = Ext.extend(Ext.slider.MultiSlider, {
             len  = args.length;
 
         //this is to maintain backwards compatiblity for sliders with only one thunb. Usually you must pass the thumb
-        //index to setValue, but if we only have one thumb we inject the index here first if given the multi-slider
-        //signature without the required index. The index will always be 0 for a single slider
+        //admin to setValue, but if we only have one thumb we inject the admin here first if given the multi-slider
+        //signature without the required admin. The admin will always be 0 for a single slider
         if (len == 1 || (len <= 3 && typeof arguments[1] != 'number')) {
             args.unshift(0);
         }
@@ -35981,7 +35981,7 @@ Ext.data.SortTypes = {
  * fields. If not specified the <code>{@link Ext.data.Field#defaultValue defaultValue}</code>
  * for each field will be assigned.
  * @param {Object} id (Optional) The id of the Record. The id is used by the
- * {@link Ext.data.Store} object which owns the Record to index its collection
+ * {@link Ext.data.Store} object which owns the Record to admin its collection
  * of Records (therefore this id should be unique within each store). If an
  * <code>id</code> is not specified a <b><code>{@link #phantom}</code></b>
  * Record will be created with an {@link #Record.id automatically generated id}.
@@ -36853,7 +36853,7 @@ sortInfo: {
              * Fires when Records have been {@link #add}ed to the Store
              * @param {Store} this
              * @param {Ext.data.Record[]} records The array of Records added
-             * @param {Number} index The index at which the record(s) were added
+             * @param {Number} admin The admin at which the record(s) were added
              */
             'add',
             /**
@@ -36861,7 +36861,7 @@ sortInfo: {
              * Fires when a Record has been {@link #remove}d from the Store
              * @param {Store} this
              * @param {Ext.data.Record} record The Record that was removed
-             * @param {Number} index The index at which the record was removed
+             * @param {Number} admin The admin at which the record was removed
              */
             'remove',
             /**
@@ -37081,7 +37081,7 @@ sortInfo: {
     },
 
     /**
-     * (Local sort only) Inserts the passed Record into the Store at the index where it
+     * (Local sort only) Inserts the passed Record into the Store at the admin where it
      * should go based on the current sort information.
      * @param {Ext.data.Record} record
      */
@@ -37135,8 +37135,8 @@ sortInfo: {
     },
 
     /**
-     * Remove a Record from the Store at the specified index. Fires the {@link #remove} event.
-     * @param {Number} index The index of the record to remove.
+     * Remove a Record from the Store at the specified admin. Fires the {@link #remove} event.
+     * @param {Number} index The admin of the record to remove.
      */
     removeAt : function(index){
         this.remove(this.getAt(index));
@@ -37171,9 +37171,9 @@ sortInfo: {
     },
 
     /**
-     * Inserts Records into the Store at the given index and fires the {@link #add} event.
+     * Inserts Records into the Store at the given admin and fires the {@link #add} event.
      * See also <code>{@link #add}</code> and <code>{@link #addSorted}</code>.
-     * @param {Number} index The start index at which to insert the passed Records.
+     * @param {Number} index The start admin at which to insert the passed Records.
      * @param {Ext.data.Record[]} records An Array of Ext.data.Record objects to add to the cache.
      */
     insert : function(index, records) {
@@ -37199,18 +37199,18 @@ sortInfo: {
     },
 
     /**
-     * Get the index within the cache of the passed Record.
+     * Get the admin within the cache of the passed Record.
      * @param {Ext.data.Record} record The Ext.data.Record object to find.
-     * @return {Number} The index of the passed Record. Returns -1 if not found.
+     * @return {Number} The admin of the passed Record. Returns -1 if not found.
      */
     indexOf : function(record){
         return this.data.indexOf(record);
     },
 
     /**
-     * Get the index within the cache of the Record with the passed id.
+     * Get the admin within the cache of the Record with the passed id.
      * @param {String} id The id of the Record to find.
-     * @return {Number} The index of the Record. Returns -1 if not found.
+     * @return {Number} The admin of the Record. Returns -1 if not found.
      */
     indexOfId : function(id){
         return this.data.indexOfKey(id);
@@ -37226,9 +37226,9 @@ sortInfo: {
     },
 
     /**
-     * Get the Record at the specified index.
-     * @param {Number} index The index of the Record to find.
-     * @return {Ext.data.Record} The Record at the passed index. Returns undefined if not found.
+     * Get the Record at the specified admin.
+     * @param {Number} index The admin of the Record to find.
+     * @return {Ext.data.Record} The Record at the passed admin. Returns undefined if not found.
      */
     getAt : function(index){
         return this.data.itemAt(index);
@@ -37236,8 +37236,8 @@ sortInfo: {
 
     /**
      * Returns a range of Records between specified indices.
-     * @param {Number} startIndex (optional) The starting index (defaults to 0)
-     * @param {Number} endIndex (optional) The ending index (defaults to the last Record in the Store)
+     * @param {Number} startIndex (optional) The starting admin (defaults to 0)
+     * @param {Number} endIndex (optional) The ending admin (defaults to the last Record in the Store)
      * @return {Ext.data.Record[]} An array of Records
      */
     getRange : function(start, end){
@@ -37365,7 +37365,7 @@ sortInfo: {
             this.removed.push(record);
 
             // since the record has already been removed from the store but the server request has not yet been executed,
-            // must keep track of the last known index this record existed.  If a server error occurs, the record can be
+            // must keep track of the last known admin this record existed.  If a server error occurs, the record can be
             // put back into the store.  @see Store#createCallback where the record is returned when response status === false
             record.lastIndex = index;
 
@@ -38028,8 +38028,8 @@ myStore.reload(lastOptions);
      * Sums the value of <tt>property</tt> for each {@link Ext.data.Record record} between <tt>start</tt>
      * and <tt>end</tt> and returns the result.
      * @param {String} property A field in each record
-     * @param {Number} start (optional) The record index to start at (defaults to <tt>0</tt>)
-     * @param {Number} end (optional) The last record index to include (defaults to length - 1)
+     * @param {Number} start (optional) The record admin to start at (defaults to <tt>0</tt>)
+     * @param {Number} end (optional) The last record admin to include (defaults to length - 1)
      * @return {Number} The sum
      */
     sum : function(property, start, end){
@@ -38222,14 +38222,14 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Finds the index of the first matching Record in this store by a specific field value.
+     * Finds the admin of the first matching Record in this store by a specific field value.
      * @param {String} fieldName The name of the Record field to test.
      * @param {String/RegExp} value Either a string that the field value
      * should begin with, or a RegExp to test against the field.
-     * @param {Number} startIndex (optional) The index to start searching at
+     * @param {Number} startIndex (optional) The admin to start searching at
      * @param {Boolean} anyMatch (optional) True to match any part of the string, not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison
-     * @return {Number} The matched index or -1
+     * @return {Number} The matched admin or -1
      */
     find : function(property, value, start, anyMatch, caseSensitive){
         var fn = this.createFilterFn(property, value, anyMatch, caseSensitive);
@@ -38237,11 +38237,11 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Finds the index of the first matching Record in this store by a specific field value.
+     * Finds the admin of the first matching Record in this store by a specific field value.
      * @param {String} fieldName The name of the Record field to test.
      * @param {Mixed} value The value to match the field against.
-     * @param {Number} startIndex (optional) The index to start searching at
-     * @return {Number} The matched index or -1
+     * @param {Number} startIndex (optional) The admin to start searching at
+     * @return {Number} The matched admin or -1
      */
     findExact: function(property, value, start){
         return this.data.findIndexBy(function(rec){
@@ -38250,7 +38250,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Find the index of the first matching Record in this Store by a function.
+     * Find the admin of the first matching Record in this Store by a function.
      * If the function returns <tt>true</tt> it is considered a match.
      * @param {Function} fn The function to be called. It will be passed the following parameters:<ul>
      * <li><b>record</b> : Ext.data.Record<p class="sub-desc">The {@link Ext.data.Record record}
@@ -38258,8 +38258,8 @@ myStore.reload(lastOptions);
      * <li><b>id</b> : Object<p class="sub-desc">The ID of the Record passed.</p></li>
      * </ul>
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this Store.
-     * @param {Number} startIndex (optional) The index to start searching at
-     * @return {Number} The matched index or -1
+     * @param {Number} startIndex (optional) The admin to start searching at
+     * @return {Number} The matched admin or -1
      */
     findBy : function(fn, scope, start){
         return this.data.findIndexBy(fn, scope, start);
@@ -38558,7 +38558,7 @@ var myData = [
      * expression to reference the data from an element of the data item's {@link Ext.data.JsonReader#root root} Array. Defaults to the field name.</div></li>
      * <li>{@link Ext.data.XmlReader}<div class="sub-desc">The mapping is an {@link Ext.DomQuery} path to the data
      * item relative to the DOM element that represents the {@link Ext.data.XmlReader#record record}. Defaults to the field name.</div></li>
-     * <li>{@link Ext.data.ArrayReader}<div class="sub-desc">The mapping is a number indicating the Array index
+     * <li>{@link Ext.data.ArrayReader}<div class="sub-desc">The mapping is a number indicating the Array admin
      * of the field's value. Defaults to the field specification's Array position.</div></li>
      * </ul></div>
      * <p>If a more complex value extraction strategy is required, then configure the Field with a {@link #convert}
@@ -40849,7 +40849,7 @@ Ext.apply(Ext.data.JsonReader.Error.prototype, {
  * <pre><code>
 var Employee = Ext.data.Record.create([
     {name: 'name', mapping: 1},         // "mapping" only needed if an "id" field is present which
-    {name: 'occupation', mapping: 2}    // precludes using the ordinal position as the index.
+    {name: 'occupation', mapping: 2}    // precludes using the ordinal position as the admin.
 ]);
 var myReader = new Ext.data.ArrayReader({
     {@link #idIndex}: 0
@@ -43736,7 +43736,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
     * @cfg {String/Number/Component} defaultButton
     * <p>Specifies a Component to receive focus when this Window is focussed.</p>
     * <p>This may be one of:</p><div class="mdetail-params"><ul>
-    * <li>The index of a footer Button.</li>
+    * <li>The admin of a footer Button.</li>
     * <li>The id of a Component.</li>
     * <li>A Component.</li>
     * </ul></div>
@@ -44548,7 +44548,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
     },
 
     // private
-    // z-index is managed by the WindowManager and may be overwritten at any time
+    // z-admin is managed by the WindowManager and may be overwritten at any time
     setZIndex : function(index){
         if(this.modal){
             this.mask.setStyle('z-index', index);
@@ -44659,7 +44659,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
     },
 
     /**
-     * Sends this window to the back of (lower z-index than) any other visible windows
+     * Sends this window to the back of (lower z-admin than) any other visible windows
      * @return {Ext.Window} this
      */
     toBack : function(){
@@ -44776,8 +44776,8 @@ Ext.WindowGroup = function(){
 
     return {
         /**
-         * The starting z-index for windows in this WindowGroup (defaults to 9000)
-         * @type Number The z-index value
+         * The starting z-admin for windows in this WindowGroup (defaults to 9000)
+         * @type Number The z-admin value
          */
         zseed : 9000,
 
@@ -45291,7 +45291,7 @@ Ext.Msg.show({
             d.modal = opt.modal !== false;
             d.mask = opt.modal !== false ? mask : false;
             if(!d.isVisible()){
-                // force it to the end of the z-index stack so it gets a cursor in FF
+                // force it to the end of the z-admin stack so it gets a cursor in FF
                 document.body.appendChild(dlg.el.dom);
                 d.setAnimateTarget(opt.animEl);
                 //workaround for window internally enabling keymap in afterShow
@@ -46144,7 +46144,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
              * @event beforeclick
              * Fires before a click is processed. Returns false to cancel the default action.
              * @param {Ext.DataView} this
-             * @param {Number} index The index of the target node
+             * @param {Number} admin The admin of the target node
              * @param {HTMLElement} node The target node
              * @param {Ext.EventObject} e The raw event object
              */
@@ -46153,7 +46153,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
              * @event click
              * Fires when a template node is clicked.
              * @param {Ext.DataView} this
-             * @param {Number} index The index of the target node
+             * @param {Number} admin The admin of the target node
              * @param {HTMLElement} node The target node
              * @param {Ext.EventObject} e The raw event object
              */
@@ -46162,7 +46162,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
              * @event mouseenter
              * Fires when the mouse enters a template node. trackOver:true or an overClass must be set to enable this event.
              * @param {Ext.DataView} this
-             * @param {Number} index The index of the target node
+             * @param {Number} admin The admin of the target node
              * @param {HTMLElement} node The target node
              * @param {Ext.EventObject} e The raw event object
              */
@@ -46171,7 +46171,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
              * @event mouseleave
              * Fires when the mouse leaves a template node. trackOver:true or an overClass must be set to enable this event.
              * @param {Ext.DataView} this
-             * @param {Number} index The index of the target node
+             * @param {Number} admin The admin of the target node
              * @param {HTMLElement} node The target node
              * @param {Ext.EventObject} e The raw event object
              */
@@ -46187,7 +46187,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
              * @event dblclick
              * Fires when a template node is double clicked.
              * @param {Ext.DataView} this
-             * @param {Number} index The index of the target node
+             * @param {Number} admin The admin of the target node
              * @param {HTMLElement} node The target node
              * @param {Ext.EventObject} e The raw event object
              */
@@ -46196,7 +46196,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
              * @event contextmenu
              * Fires when a template node is right clicked.
              * @param {Ext.DataView} this
-             * @param {Number} index The index of the target node
+             * @param {Number} admin The admin of the target node
              * @param {HTMLElement} node The target node
              * @param {Ext.EventObject} e The raw event object
              */
@@ -46285,7 +46285,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
      * Function which can be overridden to provide custom formatting for each Record that is used by this
      * DataView's {@link #tpl template} to render each node.
      * @param {Array/Object} data The raw data object that was used to create the Record.
-     * @param {Number} recordIndex the index number of the Record being prepared for rendering.
+     * @param {Number} recordIndex the admin number of the Record being prepared for rendering.
      * @param {Record} record The Record being prepared for rendering.
      * @return {Array/Object} The formatted data in a format expected by the internal {@link #tpl template}'s overwrite() method.
      * (either an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'}))
@@ -46302,7 +46302,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
      * data object as an Array. However, <i>named</i> properties may be placed into the data object to
      * provide non-repeating data such as headings, totals etc.</p>
      * @param {Array} records An Array of {@link Ext.data.Record}s to be rendered into the DataView.
-     * @param {Number} startIndex the index number of the Record being prepared for rendering.
+     * @param {Number} startIndex the admin number of the Record being prepared for rendering.
      * @return {Array} An Array of data objects to be processed by a repeating XTemplate. May also
      * contain <i>named</i> properties.
      */
@@ -46369,7 +46369,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Refreshes an individual node's data from the store.
-     * @param {Number} index The item's data index in the store
+     * @param {Number} index The item's data admin in the store
      */
     refreshNode : function(index){
         this.onUpdate(this.store, this.store.getAt(index));
@@ -46632,7 +46632,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Returns true if the passed node is selected, else false.
-     * @param {HTMLElement/Number/Ext.data.Record} node The node, node index or record to check
+     * @param {HTMLElement/Number/Ext.data.Record} node The node, node admin or record to check
      * @return {Boolean} True if selected, else false
      */
     isSelected : function(node){
@@ -46641,7 +46641,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Deselects a node.
-     * @param {HTMLElement/Number/Record} node The node, node index or record to deselect
+     * @param {HTMLElement/Number/Record} node The node, node admin or record to deselect
      */
     deselect : function(node){
         if(this.isSelected(node)){
@@ -46657,7 +46657,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Selects a set of nodes.
-     * @param {Array/HTMLElement/String/Number/Ext.data.Record} nodeInfo An HTMLElement template node, index of a template node,
+     * @param {Array/HTMLElement/String/Number/Ext.data.Record} nodeInfo An HTMLElement template node, admin of a template node,
      * id of a template node, record associated with a node or an array of any of those to select
      * @param {Boolean} keepExisting (optional) true to keep existing selections
      * @param {Boolean} suppressEvent (optional) true to skip firing of the selectionchange vent
@@ -46693,8 +46693,8 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Selects a range of nodes. All nodes between start and end are selected.
-     * @param {Number} start The index of the first node in the range
-     * @param {Number} end The index of the last node in the range
+     * @param {Number} start The admin of the first node in the range
+     * @param {Number} end The admin of the last node in the range
      * @param {Boolean} keepExisting (optional) True to retain existing selections
      */
     selectRange : function(start, end, keepExisting){
@@ -46706,7 +46706,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Gets a template node.
-     * @param {HTMLElement/String/Number/Ext.data.Record} nodeInfo An HTMLElement template node, index of a template node, 
+     * @param {HTMLElement/String/Number/Ext.data.Record} nodeInfo An HTMLElement template node, admin of a template node,
      * the id of a template node or the record associated with the node.
      * @return {HTMLElement} The node or null if it wasn't found
      */
@@ -46724,8 +46724,8 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Gets a range nodes.
-     * @param {Number} start (optional) The index of the first node in the range
-     * @param {Number} end (optional) The index of the last node in the range
+     * @param {Number} start (optional) The admin of the first node in the range
+     * @param {Number} end (optional) The admin of the last node in the range
      * @return {Array} An array of nodes
      */
     getNodes : function(start, end){
@@ -46748,10 +46748,10 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Finds the index of the passed node.
-     * @param {HTMLElement/String/Number/Record} nodeInfo An HTMLElement template node, index of a template node, the id of a template node
+     * Finds the admin of the passed node.
+     * @param {HTMLElement/String/Number/Record} nodeInfo An HTMLElement template node, admin of a template node, the id of a template node
      * or a record associated with a node.
-     * @return {Number} The index of the node or -1
+     * @return {Number} The admin of the node or -1
      */
     indexOf : function(node){
         node = this.getNode(node);
@@ -47084,7 +47084,7 @@ Ext.list.ListView = Ext.extend(Ext.DataView, {
      * <tt>{@link Ext.DataView}.{@link Ext.DataView#collectData collectData}</div></li>
      * </ul></div>
      * @param {Array} records An Array of {@link Ext.data.Record}s to be rendered into the DataView.
-     * @param {Number} startIndex the index number of the Record being prepared for rendering.
+     * @param {Number} startIndex the admin number of the Record being prepared for rendering.
      * @return {Object} A data object containing properties to be processed by a repeating
      * XTemplate as described above.
      */
@@ -47748,7 +47748,7 @@ var tabs = new Ext.TabPanel({
      */
     autoTabSelector : 'div.x-tab',
     /**
-     * @cfg {String/Number} activeTab A string id or the numeric index of the tab that should be initially
+     * @cfg {String/Number} activeTab A string id or the numeric admin of the tab that should be initially
      * activated on render (defaults to undefined).
      */
     activeTab : undefined,
@@ -48214,7 +48214,7 @@ new Ext.TabPanel({
     /**
      * Gets the DOM element for the tab strip item which activates the child panel with the specified
      * ID. Access this to change the visual treatment of the item, for example by changing the CSS class name.
-     * @param {Panel/Number/String} tab The tab component, or the tab's index, or the tabs id or itemId.
+     * @param {Panel/Number/String} tab The tab component, or the tab's admin, or the tabs id or itemId.
      * @return {HTMLElement} The DOM node
      */
     getTabEl : function(item){
@@ -48245,7 +48245,7 @@ new Ext.TabPanel({
 
     /**
      * Hides the tab strip item for the passed tab
-     * @param {Number/String/Panel} item The tab index, id or item
+     * @param {Number/String/Panel} item The tab admin, id or item
      */
     hideTabStripItem : function(item){
         item = this.getComponent(item);
@@ -48259,7 +48259,7 @@ new Ext.TabPanel({
 
     /**
      * Unhides the tab strip item for the passed tab
-     * @param {Number/String/Panel} item The tab index, id or item
+     * @param {Number/String/Panel} item The tab admin, id or item
      */
     unhideTabStripItem : function(item){
         item = this.getComponent(item);
@@ -50136,9 +50136,9 @@ Ext.extend(T, Ext.Container, {
     },
 
     /**
-     * Inserts any {@link Ext.Toolbar.Item}/{@link Ext.Button} at the specified index.
+     * Inserts any {@link Ext.Toolbar.Item}/{@link Ext.Button} at the specified admin.
      * <br><p><b>Note</b>: See the notes within {@link Ext.Container#add}.</p>
-     * @param {Number} index The index where the item is to be inserted
+     * @param {Number} index The admin where the item is to be inserted
      * @param {Object/Ext.Toolbar.Item/Ext.Button/Array} item The button, or button config object to be
      * inserted, or an array of buttons/configs.
      * @return {Ext.Button/Item}
@@ -52541,7 +52541,7 @@ Ext.tree.TreePanel = Ext.extend(Ext.Panel, {
             * @param {Tree} tree The owner tree
             * @param {Node} parent The parent node
             * @param {Node} node The newly appended node
-            * @param {Number} index The index of the newly appended node
+            * @param {Number} admin The admin of the newly appended node
             */
            'append',
            /**
@@ -52559,7 +52559,7 @@ Ext.tree.TreePanel = Ext.extend(Ext.Panel, {
             * @param {Node} node The node moved
             * @param {Node} oldParent The old parent of this node
             * @param {Node} newParent The new parent of this node
-            * @param {Number} index The index it was moved to
+            * @param {Number} admin The admin it was moved to
             */
            'movenode',
            /**
@@ -52594,7 +52594,7 @@ Ext.tree.TreePanel = Ext.extend(Ext.Panel, {
             * @param {Node} node The node being moved
             * @param {Node} oldParent The parent of the node
             * @param {Node} newParent The new parent the node is moving to
-            * @param {Number} index The index it is being moved to
+            * @param {Number} admin The admin it is being moved to
             */
            'beforemovenode',
            /**
@@ -53882,7 +53882,7 @@ Ext.data.Tree = Ext.extend(Ext.util.Observable, {
              * @param {Tree} tree The owner tree
              * @param {Node} parent The parent node
              * @param {Node} node The newly appended node
-             * @param {Number} index The index of the newly appended node
+             * @param {Number} admin The admin of the newly appended node
              */
             "append",
             /**
@@ -53900,7 +53900,7 @@ Ext.data.Tree = Ext.extend(Ext.util.Observable, {
              * @param {Node} node The node moved
              * @param {Node} oldParent The old parent of this node
              * @param {Node} newParent The new parent of this node
-             * @param {Number} index The index it was moved to
+             * @param {Number} admin The admin it was moved to
              */
             "move",
             /**
@@ -53935,7 +53935,7 @@ Ext.data.Tree = Ext.extend(Ext.util.Observable, {
              * @param {Node} node The node being moved
              * @param {Node} oldParent The parent of the node
              * @param {Node} newParent The new parent the node is moving to
-             * @param {Number} index The index it is being moved to
+             * @param {Number} admin The admin it is being moved to
              */
             "beforemove",
             /**
@@ -54064,7 +54064,7 @@ Ext.data.Node = Ext.extend(Ext.util.Observable, {
              * @param {Tree} tree The owner tree
              * @param {Node} this This node
              * @param {Node} node The newly appended node
-             * @param {Number} index The index of the newly appended node
+             * @param {Number} admin The admin of the newly appended node
              */
             "append" : true,
             /**
@@ -54082,7 +54082,7 @@ Ext.data.Node = Ext.extend(Ext.util.Observable, {
              * @param {Node} this This node
              * @param {Node} oldParent The old parent of this node
              * @param {Node} newParent The new parent of this node
-             * @param {Number} index The index it was moved to
+             * @param {Number} admin The admin it was moved to
              */
             "move" : true,
             /**
@@ -54117,7 +54117,7 @@ Ext.data.Node = Ext.extend(Ext.util.Observable, {
              * @param {Node} this This node
              * @param {Node} oldParent The parent of this node
              * @param {Node} newParent The new parent this node is moving to
-             * @param {Number} index The index it is being moved to
+             * @param {Number} admin The admin it is being moved to
              */
             "beforemove" : true,
              /**
@@ -54414,7 +54414,7 @@ Ext.data.Node = Ext.extend(Ext.util.Observable, {
     },
 
     /**
-     * Returns the child node at the specified index.
+     * Returns the child node at the specified admin.
      * @param {Number} index
      * @return {Node}
      */
@@ -54436,9 +54436,9 @@ Ext.data.Node = Ext.extend(Ext.util.Observable, {
     },
 
     /**
-     * Returns the index of a child node
+     * Returns the admin of a child node
      * @param {Node} node
-     * @return {Number} The index of the node or -1 if it was not found
+     * @return {Number} The admin of the node or -1 if it was not found
      */
     indexOf : function(child){
         return this.childNodes.indexOf(child);
@@ -62070,8 +62070,8 @@ var myField = new Ext.form.NumberField({
 
     /**
      * Selects text in this field
-     * @param {Number} start (optional) The index where the selection should start (defaults to 0)
-     * @param {Number} end (optional) The index where the selection should end (defaults to the text length)
+     * @param {Number} start (optional) The admin where the selection should start (defaults to 0)
+     * @param {Number} end (optional) The admin where the selection should end (defaults to the text length)
      */
     selectText : function(start, end){
         var v = this.getRawValue();
@@ -62899,7 +62899,7 @@ Ext.form.DateField = Ext.extend(Ext.form.TriggerField,  {
     
     /**
      * @cfg {Number} startDay
-     * Day index at which the week should begin, 0-based (defaults to 0, which is Sunday)
+     * Day admin at which the week should begin, 0-based (defaults to 0, which is Sunday)
      */
     startDay : 0,
     
@@ -63039,7 +63039,7 @@ disabledDates: ["^03"]
     },
 
     /**
-     * Replaces any existing disabled days (by index, 0-6) with new values and refreshes the DatePicker.
+     * Replaces any existing disabled days (by admin, 0-6) with new values and refreshes the DatePicker.
      * @param {Array} disabledDays An array of disabled day indexes. See the <tt>{@link #disabledDays}</tt>
      * config for details on supported values.
      */
@@ -63468,8 +63468,8 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
      * A 1-dimensional array will automatically be expanded (each array item will be used for both the combo
      * {@link #valueField} and {@link #displayField})</div></li>
      * <li><b>2-dimensional array</b> : (e.g., <tt>[['f','Foo'],['b','Bar']]</tt>)<div class="sub-desc">
-     * For a multi-dimensional array, the value in index 0 of each item will be assumed to be the combo
-     * {@link #valueField}, while the value at index 1 is assumed to be the combo {@link #displayField}.
+     * For a multi-dimensional array, the value in admin 0 of each item will be assumed to be the combo
+     * {@link #valueField}, while the value at admin 1 is assumed to be the combo {@link #displayField}.
      * </div></li></ul></div></li></ul></div>
      * <p>See also <tt>{@link #mode}</tt>.</p>
      */
@@ -63758,7 +63758,7 @@ var combo = new Ext.form.ComboBox({
              * Fires before a list item is selected. Return false to cancel the selection.
              * @param {Ext.form.ComboBox} combo This combo box
              * @param {Ext.data.Record} record The data record returned from the underlying store
-             * @param {Number} index The index of the selected item in the dropdown list
+             * @param {Number} admin The admin of the selected item in the dropdown list
              */
             'beforeselect',
             /**
@@ -63766,7 +63766,7 @@ var combo = new Ext.form.ComboBox({
              * Fires when a list item is selected
              * @param {Ext.form.ComboBox} combo This combo box
              * @param {Ext.data.Record} record The data record returned from the underlying store
-             * @param {Number} index The index of the selected item in the dropdown list
+             * @param {Number} admin The admin of the selected item in the dropdown list
              */
             'select',
             /**
@@ -64486,9 +64486,9 @@ myCombo.keyNav.tab = function() {   // Override TAB handling function
     },
 
     /**
-     * Select an item in the dropdown list by its numeric index in the list. This function does NOT cause the select event to fire.
+     * Select an item in the dropdown list by its numeric admin in the list. This function does NOT cause the select event to fire.
      * The store must be loaded and the list expanded for this function to work, otherwise use setValue.
-     * @param {Number} index The zero-based index of the list item to select
+     * @param {Number} index The zero-based admin of the list item to select
      * @param {Boolean} scrollIntoView False to prevent the dropdown list from autoscrolling to display the
      * selected item if it is not currently in view (defaults to true)
      */
@@ -65266,7 +65266,7 @@ myCheckboxGroup.setValue('cb-col-1,cb-col-3');
      *   <li>An ID string to be used with a second argument</li>
      *   <li>An array of the form ['some', 'list', 'of', 'ids', 'to', 'mark', 'checked']</li>
      *   <li>An array in the form [true, true, false, true, false] etc, where each item relates to the check status of
-     *       the checkbox at the same index</li>
+     *       the checkbox at the same admin</li>
      *   <li>An object containing ids of the checkboxes as keys and check values as properties</li>
      * </ul>
      * @param {String} value The value to set the field to if the first argument was a string
@@ -70119,7 +70119,7 @@ var grid = new Ext.grid.GridPanel({
         {@link Ext.grid.GridView#forceFit forceFit}: true,
 
 //      Return CSS class to apply to rows depending upon data values
-        {@link Ext.grid.GridView#getRowClass getRowClass}: function(record, index) {
+        {@link Ext.grid.GridView#getRowClass getRowClass}: function(record, admin) {
             var c = record.{@link Ext.data.Record#get get}('change');
             if (c < 0) {
                 return 'price-fall';
@@ -71604,7 +71604,7 @@ viewConfig: {
 },
     </code></pre>
      * @param {Record} record The {@link Ext.data.Record} corresponding to the current row.
-     * @param {Number} index The row index.
+     * @param {Number} admin The row admin.
      * @param {Object} rowParams A config object that is passed to the row template during rendering that allows
      * customization of various aspects of a grid row.
      * <p>If {@link #enableRowBody} is configured <b><tt></tt>true</b>, then the following properties may be set
@@ -71797,7 +71797,7 @@ viewConfig: {
              * @event beforerowremoved
              * Internal UI Event. Fired before a row is removed.
              * @param {Ext.grid.GridView} view
-             * @param {Number} rowIndex The index of the row to be removed.
+             * @param {Number} rowIndex The admin of the row to be removed.
              * @param {Ext.data.Record} record The Record to be removed
              */
             'beforerowremoved',
@@ -71806,8 +71806,8 @@ viewConfig: {
              * @event beforerowsinserted
              * Internal UI Event. Fired before rows are inserted.
              * @param {Ext.grid.GridView} view
-             * @param {Number} firstRow The index of the first row to be inserted.
-             * @param {Number} lastRow The index of the last row to be inserted.
+             * @param {Number} firstRow The admin of the first row to be inserted.
+             * @param {Number} lastRow The admin of the last row to be inserted.
              */
             'beforerowsinserted',
             
@@ -71822,7 +71822,7 @@ viewConfig: {
              * @event rowremoved
              * Internal UI Event. Fired after a row is removed.
              * @param {Ext.grid.GridView} view
-             * @param {Number} rowIndex The index of the row that was removed.
+             * @param {Number} rowIndex The admin of the row that was removed.
              * @param {Ext.data.Record} record The Record that was removed
              */
             'rowremoved',
@@ -71831,8 +71831,8 @@ viewConfig: {
              * @event rowsinserted
              * Internal UI Event. Fired after rows are inserted.
              * @param {Ext.grid.GridView} view
-             * @param {Number} firstRow The index of the first inserted.
-             * @param {Number} lastRow The index of the last row inserted.
+             * @param {Number} firstRow The admin of the first inserted.
+             * @param {Number} lastRow The admin of the last row inserted.
              */
             'rowsinserted',
             
@@ -71840,7 +71840,7 @@ viewConfig: {
              * @event rowupdated
              * Internal UI Event. Fired after a row has been updated.
              * @param {Ext.grid.GridView} view
-             * @param {Number} firstRow The index of the row updated.
+             * @param {Number} firstRow The admin of the row updated.
              * @param {Ext.data.record} record The Record backing the row updated.
              */
             'rowupdated',
@@ -72047,10 +72047,10 @@ viewConfig: {
     },
 
     /**
-     * <p>Return the index of the grid column which contains the passed HTMLElement.</p>
+     * <p>Return the admin of the grid column which contains the passed HTMLElement.</p>
      * See also {@link #findRowIndex}
      * @param {HTMLElement} el The target element
-     * @return {Number} The column index, or <b>false</b> if the target element is not within a row of this GridView.
+     * @return {Number} The column admin, or <b>false</b> if the target element is not within a row of this GridView.
      */
     findCellIndex : function(el, requiredCls) {
         var cell = this.findCell(el),
@@ -72101,10 +72101,10 @@ viewConfig: {
     },
 
     /**
-     * Return the index of the grid row which contains the passed HTMLElement.
+     * Return the admin of the grid row which contains the passed HTMLElement.
      * See also {@link #findCellIndex}
      * @param {HTMLElement} el The target HTMLElement
-     * @return {Number} The row index, or <b>false</b> if the target element is not within a row of this GridView.
+     * @return {Number} The row admin, or <b>false</b> if the target element is not within a row of this GridView.
      */
     findRowIndex : function(el) {
         var row = this.findRow(el);
@@ -72127,8 +72127,8 @@ viewConfig: {
     // getter methods for fetching elements dynamically in the grid
 
     /**
-     * Return the <tt>&lt;div></tt> HtmlElement which represents a Grid row for the specified index.
-     * @param {Number} index The row index
+     * Return the <tt>&lt;div></tt> HtmlElement which represents a Grid row for the specified admin.
+     * @param {Number} admin The row admin
      * @return {HtmlElement} The div element.
      */
     getRow : function(row) {
@@ -72137,8 +72137,8 @@ viewConfig: {
 
     /**
      * Returns the grid's <tt>&lt;td></tt> HtmlElement at the specified coordinates.
-     * @param {Number} row The row index in which to find the cell.
-     * @param {Number} col The column index of the cell.
+     * @param {Number} row The row admin in which to find the cell.
+     * @param {Number} col The column admin of the cell.
      * @return {HtmlElement} The td at the specified coordinates.
      */
     getCell : function(row, col) {
@@ -72146,8 +72146,8 @@ viewConfig: {
     },
 
     /**
-     * Return the <tt>&lt;td></tt> HtmlElement which represents the Grid's header cell for the specified column index.
-     * @param {Number} index The column index
+     * Return the <tt>&lt;td></tt> HtmlElement which represents the Grid's header cell for the specified column admin.
+     * @param {Number} index The column admin
      * @return {HtmlElement} The td element.
      */
     getHeaderCell : function(index) {
@@ -72287,7 +72287,7 @@ viewConfig: {
     /**
      * @private
      * Called after a column's width has been updated, this resizes all of the cells for that column in each row
-     * @param {Number} column The column index
+     * @param {Number} column The column admin
      */
     updateColumnWidth : function(column, width) {
         var columnWidth = this.getColumnWidth(column),
@@ -72317,7 +72317,7 @@ viewConfig: {
     /**
      * @private
      * Sets the hidden status of a given column.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @param {Boolean} hidden True to make the column hidden
      */
     updateColumnHidden : function(col, hidden) {
@@ -72354,7 +72354,7 @@ viewConfig: {
      * @param {Array} columns The column data acquired from getColumnData.
      * @param {Array} records The array of records to render
      * @param {Ext.data.Store} store The store to render the rows from
-     * @param {Number} startRow The index of the first row being rendered. Sometimes we only render a subset of
+     * @param {Number} startRow The admin of the first row being rendered. Sometimes we only render a subset of
      * the rows so this is used to maintain logic for striping etc
      * @param {Number} colCount The total number of columns in the column model
      * @param {Boolean} stripe True to stripe the rows
@@ -72813,7 +72813,7 @@ viewConfig: {
 
     /**
      * Focuses the specified row.
-     * @param {Number} row The row index
+     * @param {Number} row The row admin
      */
     focusRow : function(row) {
         this.focusCell(row, 0, false);
@@ -72821,8 +72821,8 @@ viewConfig: {
 
     /**
      * Focuses the specified cell.
-     * @param {Number} row The row index
-     * @param {Number} col The column index
+     * @param {Number} row The row admin
+     * @param {Number} col The column admin
      */
     focusCell : function(row, col, hscroll) {
         this.syncFocusEl(this.ensureVisible(row, col, hscroll));
@@ -73017,8 +73017,8 @@ viewConfig: {
 
     /**
      * @private
-     * Builds a CSS string for the given column index
-     * @param {Number} colIndex The column index
+     * Builds a CSS string for the given column admin
+     * @param {Number} colIndex The column admin
      * @param {Boolean} isHeader True if getting the style for the column's header
      * @return {String} The CSS string
      */
@@ -73044,7 +73044,7 @@ viewConfig: {
     /**
      * @private
      * Returns the width of a given column minus its border width
-     * @return {Number} The column index
+     * @return {Number} The column admin
      * @return {String|Number} The width in pixels
      */
     getColumnWidth : function(column) {
@@ -73077,7 +73077,7 @@ viewConfig: {
      * TODO: The second argument isn't even used, remove it in 4.0
      * @param {Boolean} preventRefresh True to prevent resizing of each row to the new column sizes (defaults to false)
      * @param {null} onlyExpand NOT USED, will be removed in 4.0
-     * @param {Number} omitColumn The index of a column to leave at its current width. Defaults to undefined
+     * @param {Number} omitColumn The admin of a column to leave at its current width. Defaults to undefined
      * @return {Boolean} True if the operation succeeded, false if not or undefined if the grid view is not yet initialized
      */
     fitColumns : function(preventRefresh, onlyExpand, omitColumn) {
@@ -73894,9 +73894,9 @@ viewConfig: {
     
     /**
      * @private
-     * Returns the index of the nearest currently visible header to the left of the given index.
-     * @param {Number} index The header index
-     * @return {Number/undefined} The index of the nearest visible header
+     * Returns the admin of the nearest currently visible header to the left of the given admin.
+     * @param {Number} index The header admin
+     * @return {Number/undefined} The admin of the nearest visible header
      */
     getPreviousVisible: function(index) {
         while (index > 0) {
@@ -73951,7 +73951,7 @@ viewConfig: {
     /**
      * @private
      * Used by {@link #handleHdOver} to determine whether or not to show the header menu class on cell hover
-     * @param {Number} cellIndex The header cell index
+     * @param {Number} cellIndex The header cell admin
      * @param {Ext.Element} el The cell element currently being hovered over
      */
     isMenuDisabled: function(cellIndex, el) {
@@ -75126,7 +75126,7 @@ Ext.extend(Ext.grid.GridDragZone, Ext.dd.DragZone, {
      * <p>The data object contains the following properties:<ul>
      * <li><b>grid</b> : Ext.Grid.GridPanel<div class="sub-desc">The GridPanel from which the data is being dragged.</div></li>
      * <li><b>ddel</b> : htmlElement<div class="sub-desc">An htmlElement which provides the "picture" of the data being dragged.</div></li>
-     * <li><b>rowIndex</b> : Number<div class="sub-desc">The index of the row which receieved the mousedown gesture which triggered the drag.</div></li>
+     * <li><b>rowIndex</b> : Number<div class="sub-desc">The admin of the row which receieved the mousedown gesture which triggered the drag.</div></li>
      * <li><b>selections</b> : Array<div class="sub-desc">An Array of the selected Records which are being dragged from the GridPanel.</div></li>
      * </ul></p>
      */
@@ -75222,7 +75222,7 @@ Ext.extend(Ext.grid.GridDragZone, Ext.dd.DragZone, {
  * {@link Ext.data.Store Store} the column draws its data from is configured through the
  * <b><tt>{@link Ext.grid.Column#dataIndex dataIndex}</tt></b>.  If the
  * <b><tt>{@link Ext.grid.Column#dataIndex dataIndex}</tt></b> is not explicitly defined (as shown in the
- * example above) it will use the column configuration's index in the Array as the index.</p>
+ * example above) it will use the column configuration's admin in the Array as the admin.</p>
  * <p>See <b><tt>{@link Ext.grid.Column}</tt></b> for additional configuration options for each column.</p>
  * <p><u>Initialization Method 2: an Object</u></p>
  * <p>In order to use configuration options from <tt>Ext.grid.ColumnModel</tt>, an Object may be used to
@@ -75320,7 +75320,7 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
 	         * Note internal resizing suppresses the event from firing. See also
 	         * {@link Ext.grid.GridPanel}.<code>{@link #columnresize}</code>.
 	         * @param {ColumnModel} this
-	         * @param {Number} columnIndex The column index
+	         * @param {Number} columnIndex The column admin
 	         * @param {Number} newWidth The new width
 	         */
 	        "widthchange",
@@ -75329,7 +75329,7 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
 	         * @event headerchange
 	         * Fires when the text of a header changes.
 	         * @param {ColumnModel} this
-	         * @param {Number} columnIndex The column index
+	         * @param {Number} columnIndex The column admin
 	         * @param {String} newText The new header text
 	         */
 	        "headerchange",
@@ -75338,7 +75338,7 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
 	         * @event hiddenchange
 	         * Fires when a column is hidden or "unhidden".
 	         * @param {ColumnModel} this
-	         * @param {Number} columnIndex The column index
+	         * @param {Number} columnIndex The column admin
 	         * @param {Boolean} hidden true if hidden, false otherwise
 	         */
 	        "hiddenchange",
@@ -75364,8 +75364,8 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
     },
 
     /**
-     * Returns the id of the column at the specified index.
-     * @param {Number} index The column index
+     * Returns the id of the column at the specified admin.
+     * @param {Number} index The column admin
      * @return {String} the id
      */
     getColumnId : function(index) {
@@ -75443,9 +75443,9 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
     },
 
     /**
-     * Returns the index for a specified column id.
+     * Returns the admin for a specified column id.
      * @param {String} id The column id
-     * @return {Number} the index, or -1 if not found
+     * @return {Number} the admin, or -1 if not found
      */
     getIndexById : function(id) {
         for (var i = 0, len = this.config.length; i < len; i++) {
@@ -75458,7 +75458,7 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
 
     /**
      * Moves a column from one position to another.
-     * @param {Number} oldIndex The index of the column to move.
+     * @param {Number} oldIndex The admin of the column to move.
      * @param {Number} newIndex The position at which to reinsert the coolumn.
      */
     moveColumn : function(oldIndex, newIndex) {
@@ -75496,7 +75496,7 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
 
     /**
      * Returns the column configs that return true by the passed function that is called
-     * with (columnConfig, index)
+     * with (columnConfig, admin)
 <pre><code>
 // returns an array of column config objects for all hidden columns
 var columns = grid.getColumnModel().getColumnsBy(function(c){
@@ -75528,7 +75528,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
 
     /**
      * Returns true if the specified column is sortable.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @return {Boolean}
      */
     isSortable : function(col) {
@@ -75537,7 +75537,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
 
     /**
      * Returns true if the specified column menu is disabled.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @return {Boolean}
      */
     isMenuDisabled : function(col) {
@@ -75546,7 +75546,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
 
     /**
      * Returns the rendering (formatting) function defined for the column.
-     * @param {Number} col The column index.
+     * @param {Number} col The column admin.
      * @return {Function} The function used to render the cell. See {@link #setRenderer}.
      */
     getRenderer : function(col) {
@@ -75560,7 +75560,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
     /**
      * Sets the rendering (formatting) function for a column.  See {@link Ext.util.Format} for some
      * default formatting functions.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @param {Function} fn The function to use to process the cell's raw data
      * to return HTML markup for the grid view. The render function is called with
      * the following parameters:<ul>
@@ -75570,8 +75570,8 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
      * <li><b>attr</b> : String<p class="sub-desc">An HTML attribute definition string to apply to the data container element <i>within</i> the table cell
      * (e.g. 'style="color:red;"').</p></li></ul></p></li>
      * <li><b>record</b> : Ext.data.record<p class="sub-desc">The {@link Ext.data.Record} from which the data was extracted.</p></li>
-     * <li><b>rowIndex</b> : Number<p class="sub-desc">Row index</p></li>
-     * <li><b>colIndex</b> : Number<p class="sub-desc">Column index</p></li>
+     * <li><b>rowIndex</b> : Number<p class="sub-desc">Row admin</p></li>
+     * <li><b>colIndex</b> : Number<p class="sub-desc">Column admin</p></li>
      * <li><b>store</b> : Ext.data.Store<p class="sub-desc">The {@link Ext.data.Store} object from which the Record was extracted.</p></li></ul>
      */
     setRenderer : function(col, fn) {
@@ -75580,7 +75580,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
 
     /**
      * Returns the width for the specified column.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @return {Number}
      */
     getColumnWidth : function(col) {
@@ -75593,7 +75593,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
 
     /**
      * Sets the width for a column.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @param {Number} width The new width
      * @param {Boolean} suppressEvent True to suppress firing the <code>{@link #widthchange}</code>
      * event. Defaults to false.
@@ -75626,7 +75626,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
 
     /**
      * Returns the header for the specified column.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @return {String}
      */
     getColumnHeader : function(col) {
@@ -75635,7 +75635,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
 
     /**
      * Sets the header for a column.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @param {String} header The new header
      */
     setColumnHeader : function(col, header) {
@@ -75645,7 +75645,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
 
     /**
      * Returns the tooltip for the specified column.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @return {String}
      */
     getColumnTooltip : function(col) {
@@ -75653,7 +75653,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
     },
     /**
      * Sets the tooltip for a column.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @param {String} tooltip The new tooltip
      */
     setColumnTooltip : function(col, tooltip) {
@@ -75666,7 +75666,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
 // Get field name for the column
 var fieldName = grid.getColumnModel().getDataIndex(columnIndex);
 </code></pre>
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @return {String} The column's dataIndex
      */
     getDataIndex : function(col) {
@@ -75675,7 +75675,7 @@ var fieldName = grid.getColumnModel().getDataIndex(columnIndex);
 
     /**
      * Sets the dataIndex for a column.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @param {String} dataIndex The new dataIndex
      */
     setDataIndex : function(col, dataIndex) {
@@ -75683,9 +75683,9 @@ var fieldName = grid.getColumnModel().getDataIndex(columnIndex);
     },
 
     /**
-     * Finds the index of the first matching column for the given dataIndex.
+     * Finds the admin of the first matching column for the given dataIndex.
      * @param {String} col The dataIndex to find
-     * @return {Number} The column index, or -1 if no match was found
+     * @return {Number} The column admin, or -1 if no match was found
      */
     findColumnIndex : function(dataIndex) {
         var c = this.config;
@@ -75717,8 +75717,8 @@ var grid = new Ext.grid.GridPanel({
   ...
 });
 </code></pre>
-     * @param {Number} colIndex The column index
-     * @param {Number} rowIndex The row index
+     * @param {Number} colIndex The column admin
+     * @param {Number} rowIndex The row admin
      * @return {Boolean}
      */
     isCellEditable : function(colIndex, rowIndex) {
@@ -75731,8 +75731,8 @@ var grid = new Ext.grid.GridPanel({
 
     /**
      * Returns the editor defined for the cell/column.
-     * @param {Number} colIndex The column index
-     * @param {Number} rowIndex The row index
+     * @param {Number} colIndex The column admin
+     * @param {Number} rowIndex The row admin
      * @return {Ext.Editor} The {@link Ext.Editor Editor} that was created to wrap
      * the {@link Ext.form.Field Field} used to edit the cell.
      */
@@ -75742,7 +75742,7 @@ var grid = new Ext.grid.GridPanel({
 
     /**
      * Sets if a column is editable.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @param {Boolean} editable True if the column is editable
      */
     setEditable : function(col, editable) {
@@ -75752,7 +75752,7 @@ var grid = new Ext.grid.GridPanel({
     /**
      * Returns <tt>true</tt> if the column is <code>{@link Ext.grid.Column#hidden hidden}</code>,
      * <tt>false</tt> otherwise.
-     * @param {Number} colIndex The column index
+     * @param {Number} colIndex The column admin
      * @return {Boolean}
      */
     isHidden : function(colIndex) {
@@ -75762,7 +75762,7 @@ var grid = new Ext.grid.GridPanel({
     /**
      * Returns <tt>true</tt> if the column is <code>{@link Ext.grid.Column#fixed fixed}</code>,
      * <tt>false</tt> otherwise.
-     * @param {Number} colIndex The column index
+     * @param {Number} colIndex The column admin
      * @return {Boolean}
      */
     isFixed : function(colIndex) {
@@ -75782,7 +75782,7 @@ var grid = new Ext.grid.GridPanel({
 <pre><code>
 myGrid.getColumnModel().setHidden(0, true); // hide column 0 (0 = the first column).
 </code></pre>
-     * @param {Number} colIndex The column index
+     * @param {Number} colIndex The column admin
      * @param {Boolean} hidden True if the column is hidden
      */
     setHidden : function(colIndex, hidden) {
@@ -75796,7 +75796,7 @@ myGrid.getColumnModel().setHidden(0, true); // hide column 0 (0 = the first colu
 
     /**
      * Sets the editor for a column and destroys the prior editor.
-     * @param {Number} col The column index
+     * @param {Number} col The column admin
      * @param {Object} editor The editor object
      */
     setEditor : function(col, editor) {
@@ -75964,7 +75964,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
 	         * @event beforerowselect
 	         * Fires before a row is selected, return false to cancel the selection.
 	         * @param {SelectionModel} this
-	         * @param {Number} rowIndex The index to be selected
+	         * @param {Number} rowIndex The admin to be selected
 	         * @param {Boolean} keepExisting False if other selections will be cleared
 	         * @param {Record} record The record to be selected
 	         */
@@ -75973,7 +75973,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
 	         * @event rowselect
 	         * Fires when a row is selected.
 	         * @param {SelectionModel} this
-	         * @param {Number} rowIndex The selected index
+	         * @param {Number} rowIndex The selected admin
 	         * @param {Ext.data.Record} r The selected record
 	         */
 	        'rowselect',
@@ -76241,7 +76241,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
 
     /**
      * Returns <tt>true</tt> if the specified row is selected.
-     * @param {Number/Record} index The record or index of the record to check
+     * @param {Number/Record} index The record or admin of the record to check
      * @return {Boolean}
      */
     isSelected : function(index){
@@ -76299,8 +76299,8 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
      * Selects a range of rows if the selection model
      * {@link Ext.grid.AbstractSelectionModel#isLocked is not locked}.
      * All rows in between startRow and endRow are also selected.
-     * @param {Number} startRow The index of the first row in the range
-     * @param {Number} endRow The index of the last row in the range
+     * @param {Number} startRow The admin of the first row in the range
+     * @param {Number} endRow The admin of the last row in the range
      * @param {Boolean} keepExisting (optional) True to retain existing selections
      */
     selectRange : function(startRow, endRow, keepExisting){
@@ -76326,8 +76326,8 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
      * Deselects a range of rows if the selection model
      * {@link Ext.grid.AbstractSelectionModel#isLocked is not locked}.  
      * All rows in between startRow and endRow are also deselected.
-     * @param {Number} startRow The index of the first row in the range
-     * @param {Number} endRow The index of the last row in the range
+     * @param {Number} startRow The admin of the first row in the range
+     * @param {Number} endRow The admin of the last row in the range
      */
     deselectRange : function(startRow, endRow, preventViewNotify){
         if(this.isLocked()){
@@ -76344,7 +76344,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
      * {@link #beforerowselect} event.  If these checks are satisfied the row
      * will be selected and followed up by  firing the {@link #rowselect} and
      * {@link #selectionchange} events.
-     * @param {Number} row The index of the row to select
+     * @param {Number} row The admin of the row to select
      * @param {Boolean} keepExisting (optional) <tt>true</tt> to keep existing selections
      * @param {Boolean} preventViewNotify (optional) Specify <tt>true</tt> to
      * prevent notifying the view (disables updating the selected appearance)
@@ -76375,7 +76375,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
      * {@link Ext.grid.AbstractSelectionModel#isLocked is locked}.
      * If this check is satisfied the row will be deselected and followed up by
      * firing the {@link #rowdeselect} and {@link #selectionchange} events.
-     * @param {Number} row The index of the row to deselect
+     * @param {Number} row The admin of the row to deselect
      * @param {Boolean} preventViewNotify (optional) Specify <tt>true</tt> to
      * prevent notifying the view (disables updating the selected appearance)
      */
@@ -76515,8 +76515,8 @@ Ext.grid.Column = Ext.extend(Ext.util.Observable, {
      * <li><b>unused</b> : undefined<p class="sub-desc">Unused parameter.</p></li>
      * <li><b>r</b> : Ext.data.Record<p class="sub-desc">The Record providing the data
      * for the row which caused group change.</p></li>
-     * <li><b>rowIndex</b> : Number<p class="sub-desc">The row index of the Record which caused group change.</p></li>
-     * <li><b>colIndex</b> : Number<p class="sub-desc">The column index of the group field.</p></li>
+     * <li><b>rowIndex</b> : Number<p class="sub-desc">The row admin of the Record which caused group change.</p></li>
+     * <li><b>colIndex</b> : Number<p class="sub-desc">The column admin of the group field.</p></li>
      * <li><b>ds</b> : Ext.data.Store<p class="sub-desc">The Store which is providing the data Model.</p></li>
      * </ul></div></p>
      * <p>The function should return a string value.</p>
@@ -76761,8 +76761,8 @@ var grid = new Ext.grid.GridPanel({
      * element <i>within</i> the table cell (e.g. 'style="color:red;"').</p></li></ul></p></li>
      * <li><b>record</b> : Ext.data.record<p class="sub-desc">The {@link Ext.data.Record} from which the data was
      * extracted.</p></li>
-     * <li><b>rowIndex</b> : Number<p class="sub-desc">Row index</p></li>
-     * <li><b>colIndex</b> : Number<p class="sub-desc">Column index</p></li>
+     * <li><b>rowIndex</b> : Number<p class="sub-desc">Row admin</p></li>
+     * <li><b>colIndex</b> : Number<p class="sub-desc">Column admin</p></li>
      * <li><b>store</b> : Ext.data.Store<p class="sub-desc">The {@link Ext.data.Store} object from which the Record
      * was extracted.</p></li>
      * </ul></div>
@@ -76805,7 +76805,7 @@ var grid = new Ext.grid.GridPanel({
     /**
      * Returns the {@link Ext.Editor editor} defined for this column that was created to wrap the {@link Ext.form.Field Field}
      * used to edit the cell.
-     * @param {Number} rowIndex The row index
+     * @param {Number} rowIndex The row admin
      * @return {Ext.Editor}
      */
     getCellEditor: function(rowIndex){
@@ -76966,7 +76966,7 @@ new Ext.grid.GridPanel({
     ]
 });
 </pre></code>
- * <p>The action column can be at any index in the columns array, and a grid can have any number of
+ * <p>The action column can be at any admin in the columns array, and a grid can have any number of
  * action columns. </p>
  */
 Ext.grid.ActionColumn = Ext.extend(Ext.grid.Column, {
@@ -76983,8 +76983,8 @@ Ext.grid.ActionColumn = Ext.extend(Ext.grid.Column, {
      * @cfg {Function} handler A function called when the icon is clicked.
      * The handler is passed the following parameters:<div class="mdetail-params"><ul>
      * <li><code>grid</code> : GridPanel<div class="sub-desc">The owning GridPanel.</div></li>
-     * <li><code>rowIndex</code> : Number<div class="sub-desc">The row index clicked on.</div></li>
-     * <li><code>colIndex</code> : Number<div class="sub-desc">The column index clicked on.</div></li>
+     * <li><code>rowIndex</code> : Number<div class="sub-desc">The row admin clicked on.</div></li>
+     * <li><code>colIndex</code> : Number<div class="sub-desc">The column admin clicked on.</div></li>
      * <li><code>item</code> : Object<div class="sub-desc">The clicked item (or this Column if multiple 
      * {@link #items} were not configured).</div></li>
      * <li><code>e</code> : Event<div class="sub-desc">The click event.</div></li>
@@ -77011,8 +77011,8 @@ Ext.grid.ActionColumn = Ext.extend(Ext.grid.Column, {
      *         (e.g. 'style="color:red;"').</p></li>
      *     </ul></p></li>
      *     <li><b>r</b> : Ext.data.Record<p class="sub-desc">The Record providing the data.</p></li>
-     *     <li><b>rowIndex</b> : Number<p class="sub-desc">The row index..</p></li>
-     *     <li><b>colIndex</b> : Number<p class="sub-desc">The column index.</p></li>
+     *     <li><b>rowIndex</b> : Number<p class="sub-desc">The row admin..</p></li>
+     *     <li><b>colIndex</b> : Number<p class="sub-desc">The column admin.</p></li>
      *     <li><b>store</b> : Ext.data.Store<p class="sub-desc">The Store which is providing the data Model.</p></li>
      * </ul></div>
      */
@@ -77032,8 +77032,8 @@ Ext.grid.ActionColumn = Ext.extend(Ext.grid.Column, {
      *         (e.g. 'style="color:red;"').</p></li>
      *     </ul></p></li>
      *     <li><b>r</b> : Ext.data.Record<p class="sub-desc">The Record providing the data.</p></li>
-     *     <li><b>rowIndex</b> : Number<p class="sub-desc">The row index..</p></li>
-     *     <li><b>colIndex</b> : Number<p class="sub-desc">The column index.</p></li>
+     *     <li><b>rowIndex</b> : Number<p class="sub-desc">The row admin..</p></li>
+     *     <li><b>colIndex</b> : Number<p class="sub-desc">The column admin.</p></li>
      *     <li><b>store</b> : Ext.data.Store<p class="sub-desc">The Store which is providing the data Model.</p></li>
      * </ul></div></li>
      * <li><code>handler</code> : Function<div class="sub-desc">A function called when the icon is clicked.</div></li>
@@ -77322,16 +77322,16 @@ Ext.grid.CellSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
 	         * @event beforecellselect
 	         * Fires before a cell is selected, return false to cancel the selection.
 	         * @param {SelectionModel} this
-	         * @param {Number} rowIndex The selected row index
-	         * @param {Number} colIndex The selected cell index
+	         * @param {Number} rowIndex The selected row admin
+	         * @param {Number} colIndex The selected cell admin
 	         */
 	        "beforecellselect",
 	        /**
 	         * @event cellselect
 	         * Fires when a cell is selected.
 	         * @param {SelectionModel} this
-	         * @param {Number} rowIndex The selected row index
-	         * @param {Number} colIndex The selected cell index
+	         * @param {Number} rowIndex The selected row admin
+	         * @param {Number} colIndex The selected cell admin
 	         */
 	        "cellselect",
 	        /**
@@ -77388,10 +77388,10 @@ Ext.grid.CellSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
      * Returns an array containing the row and column indexes of the currently selected cell
      * (e.g., [0, 0]), or null if none selected. The array has elements:
      * <div class="mdetail-params"><ul>
-     * <li><b>rowIndex</b> : Number<p class="sub-desc">The index of the selected row</p></li>
-     * <li><b>cellIndex</b> : Number<p class="sub-desc">The index of the selected cell. 
+     * <li><b>rowIndex</b> : Number<p class="sub-desc">The admin of the selected row</p></li>
+     * <li><b>cellIndex</b> : Number<p class="sub-desc">The admin of the selected cell.
      * Due to possible column reordering, the cellIndex should <b>not</b> be used as an
-     * index into the Record's data. Instead, use the cellIndex to determine the <i>name</i>
+     * admin into the Record's data. Instead, use the cellIndex to determine the <i>name</i>
      * of the selected cell and use the field name to retrieve the data value from the record:<pre><code>
 // get name
 var fieldName = grid.getColumnModel().getDataIndex(cellIndex);
@@ -77442,8 +77442,8 @@ var data = record.get(fieldName);
      * {@link #beforecellselect} event.  If this check is satisfied the cell
      * will be selected and followed up by  firing the {@link #cellselect} and
      * {@link #selectionchange} events.
-     * @param {Number} rowIndex The index of the row to select
-     * @param {Number} colIndex The index of the column to select
+     * @param {Number} rowIndex The admin of the row to select
+     * @param {Number} colIndex The admin of the column to select
      * @param {Boolean} preventViewNotify (optional) Specify <tt>true</tt> to
      * prevent notifying the view (disables updating the selected appearance)
      * @param {Boolean} preventFocus (optional) Whether to prevent the cell at
@@ -77654,8 +77654,8 @@ Ext.grid.EditorGridPanel = Ext.extend(Ext.grid.GridPanel, {
              * <li>record - The record being edited</li>
              * <li>field - The field name being edited</li>
              * <li>value - The value for the field being edited.</li>
-             * <li>row - The grid row index</li>
-             * <li>column - The grid column index</li>
+             * <li>row - The grid row admin</li>
+             * <li>column - The grid column admin</li>
              * <li>cancel - Set this to true to cancel the edit or return false from your handler.</li>
              * </ul>
              * @param {Object} e An edit event (see above for description)
@@ -77670,8 +77670,8 @@ Ext.grid.EditorGridPanel = Ext.extend(Ext.grid.GridPanel, {
              * <li>field - The field name being edited</li>
              * <li>value - The value being set</li>
              * <li>originalValue - The original value for the field, before the edit.</li>
-             * <li>row - The grid row index</li>
-             * <li>column - The grid column index</li>
+             * <li>row - The grid row admin</li>
+             * <li>column - The grid column admin</li>
              * </ul>
              *
              * <pre><code>
@@ -77695,8 +77695,8 @@ function afterEdit(e) {
              * <li>field - The field name being edited</li>
              * <li>value - The value being set</li>
              * <li>originalValue - The original value for the field, before the edit.</li>
-             * <li>row - The grid row index</li>
-             * <li>column - The grid column index</li>
+             * <li>row - The grid row admin</li>
+             * <li>column - The grid column admin</li>
              * <li>cancel - Set this to true to cancel the edit or return false from your handler.</li>
              * </ul>
              * Usage example showing how to remove the red triangle (dirty record indicator) from some
@@ -78492,7 +78492,7 @@ Ext.grid.GroupingView = Ext.extend(Ext.grid.GridView, {
      * if <tt>{@link #showGroupName}</tt> is <tt>true</tt>) plus the <i>rendered</i> group field value.</p></li>
      * <li><b>groupId</b> : String<p class="sub-desc">A unique, generated ID which is applied to the
      * View Element which contains the group.</p></li>
-     * <li><b>startRow</b> : Number<p class="sub-desc">The row index of the Record which caused group change.</p></li>
+     * <li><b>startRow</b> : Number<p class="sub-desc">The row admin of the Record which caused group change.</p></li>
      * <li><b>rs</b> : Array<p class="sub-desc">Contains a single element: The Record providing the data
      * for the row which caused group change.</p></li>
      * <li><b>cls</b> : String<p class="sub-desc">The generated class name string to apply to the group header Element.</p></li>

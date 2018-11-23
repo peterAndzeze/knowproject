@@ -14,7 +14,7 @@ import org.elasticsearch.common.transport.TransportAddress;
 import java.util.List;
 
 /**
- *index　响应信息
+ *admin　响应信息
  */
 public  class EsInfoService  {
 

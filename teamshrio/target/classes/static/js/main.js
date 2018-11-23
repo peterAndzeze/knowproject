@@ -154,19 +154,29 @@ function loadMenus(obj) {
             tbItem.removeAll();
             tbItem.add(bbar);
             getFirstItems(tbItem, arr);
-            tbItem.add(['->',{text: Ext.get("userName").dom.value+" 您好！",iconCls: 'buser'},
+            tbItem.add(['->',{
+                        text:'刷新菜单',listeners:{
+                            'click':function(){
+                                loadMenus(obj);
+                            }
+                        }
+                    },{text: Ext.get("userName").dom.value+" 您好！",iconCls: 'buser'},
+
                         {
                             xtype:'combo',
                             store:new Ext.data.JsonStore({
                                 url:'',
                                 fields:["id","appName"]
                             }),
+                            emptyText:'业务系统',
                             mode:'local',
                             forceSelection : false,
                             triggerAction:'all',
                             displayField:'appName',
                             valueField:'id',
                             selectOnFocus: true,
+                            anchor: '90%',
+                            width:100,
                             listeners:{"select":function(data){
 
                             }}

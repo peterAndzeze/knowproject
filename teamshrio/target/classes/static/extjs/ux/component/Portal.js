@@ -92,7 +92,7 @@ Ext.ux.Portal.DropZone = Ext.extend(Ext.dd.DropTarget, {
                 break;
             }
         }
-        // no match, fix last index
+        // no match, fix last admin
         if(!cmatch){
             col--;
         }

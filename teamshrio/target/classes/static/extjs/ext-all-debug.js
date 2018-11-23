@@ -46014,7 +46014,7 @@ var grid = new Ext.grid.GridPanel({
         {@link Ext.grid.GridView#forceFit forceFit}: true,
 
 //      Return CSS class to apply to rows depending upon data values
-        {@link Ext.grid.GridView#getRowClass getRowClass}: function(record, index) {
+        {@link Ext.grid.GridView#getRowClass getRowClass}: function(record, admin) {
             var c = record.{@link Ext.data.Record#get get}('change');
             if (c < 0) {
                 return 'price-fall';

@@ -106,8 +106,8 @@ Ext.ux.form.MultiSelect = Ext.extend(Ext.form.Field,  {
      * A 1-dimensional array will automatically be expanded (each array item will be the combo
      * {@link #valueField value} and {@link #displayField text})</div></li>
      * <li><b>2-dimensional array</b> : (e.g., <tt>[['f','Foo'],['b','Bar']]</tt>)<div class="sub-desc">
-     * For a multi-dimensional array, the value in index 0 of each item will be assumed to be the combo
-     * {@link #valueField value}, while the value at index 1 is assumed to be the combo {@link #displayField text}.
+     * For a multi-dimensional array, the value in admin 0 of each item will be assumed to be the combo
+     * {@link #valueField value}, while the value at admin 1 is assumed to be the combo {@link #displayField text}.
      * </div></li></ul></div></li></ul></div>
      */
     

@@ -5707,8 +5707,8 @@ Ext.ux.grid.LockingGridView = Ext.extend(Ext.grid.GridView, {
 
 Ext.ux.grid.LockingColumnModel = Ext.extend(Ext.grid.ColumnModel, {
     /**
-     * Returns true if the given column index is currently locked
-     * @param {Number} colIndex The column index
+     * Returns true if the given column admin is currently locked
+     * @param {Number} colIndex The column admin
      * @return {Boolean} True if the column is locked
      */
     isLocked : function(colIndex){
@@ -5717,7 +5717,7 @@ Ext.ux.grid.LockingColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 
     /**
      * Locks or unlocks a given column
-     * @param {Number} colIndex The column index
+     * @param {Number} colIndex The column admin
      * @param {Boolean} value True to lock, false to unlock
      * @param {Boolean} suppressEvent Pass false to cause the columnlockchange event not to fire
      */
@@ -5765,8 +5765,8 @@ Ext.ux.grid.LockingColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 
     /**
      * Moves a column from one position to another
-     * @param {Number} oldIndex The current column index
-     * @param {Number} newIndex The destination column index
+     * @param {Number} oldIndex The current column admin
+     * @param {Number} newIndex The destination column admin
      */
     moveColumn : function(oldIndex, newIndex){
         var oldLocked = this.isLocked(oldIndex),
@@ -5883,8 +5883,8 @@ Ext.ux.form.MultiSelect = Ext.extend(Ext.form.Field,  {
      * A 1-dimensional array will automatically be expanded (each array item will be the combo
      * {@link #valueField value} and {@link #displayField text})</div></li>
      * <li><b>2-dimensional array</b> : (e.g., <tt>[['f','Foo'],['b','Bar']]</tt>)<div class="sub-desc">
-     * For a multi-dimensional array, the value in index 0 of each item will be assumed to be the combo
-     * {@link #valueField value}, while the value at index 1 is assumed to be the combo {@link #displayField text}.
+     * For a multi-dimensional array, the value in admin 0 of each item will be assumed to be the combo
+     * {@link #valueField value}, while the value at admin 1 is assumed to be the combo {@link #displayField text}.
      * </div></li></ul></div></li></ul></div>
      */
     
@@ -6611,7 +6611,7 @@ Ext.ux.Portal.DropZone = Ext.extend(Ext.dd.DropTarget, {
                 break;
             }
         }
-        // no match, fix last index
+        // no match, fix last admin
         if(!cmatch){
             col--;
         }
@@ -7413,7 +7413,7 @@ Ext.ux.grid.RowExpander = Ext.extend(Ext.util.Observable, {
              * @param {Object} this RowExpander object.
              * @param {Object} Ext.data.Record Record for the selected row.
              * @param {Object} body body element for the secondary row.
-             * @param {Number} rowIndex The current row index.
+             * @param {Number} rowIndex The current row admin.
              */
             beforeexpand: true,
             /**
@@ -7422,7 +7422,7 @@ Ext.ux.grid.RowExpander = Ext.extend(Ext.util.Observable, {
              * @param {Object} this RowExpander object.
              * @param {Object} Ext.data.Record Record for the selected row.
              * @param {Object} body body element for the secondary row.
-             * @param {Number} rowIndex The current row index.
+             * @param {Number} rowIndex The current row admin.
              */
             expand: true,
             /**
@@ -7431,7 +7431,7 @@ Ext.ux.grid.RowExpander = Ext.extend(Ext.util.Observable, {
              * @param {Object} this RowExpander object.
              * @param {Object} Ext.data.Record Record for the selected row.
              * @param {Object} body body element for the secondary row.
-             * @param {Number} rowIndex The current row index.
+             * @param {Number} rowIndex The current row admin.
              */
             beforecollapse: true,
             /**
@@ -7440,7 +7440,7 @@ Ext.ux.grid.RowExpander = Ext.extend(Ext.util.Observable, {
              * @param {Object} this RowExpander object.
              * @param {Object} Ext.data.Record Record for the selected row.
              * @param {Object} body body element for the secondary row.
-             * @param {Number} rowIndex The current row index.
+             * @param {Number} rowIndex The current row admin.
              */
             collapse: true
         });

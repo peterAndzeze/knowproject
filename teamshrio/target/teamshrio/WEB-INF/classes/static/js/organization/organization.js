@@ -2,13 +2,13 @@ var rootId="-1";
 
 var baseName = '菜单信息';
 var baseIcon = 'bbook';
-var tabDivId = 'menuTab';
+var tabDivId = 'orgTab';
 var formId = Ext.id();
 var formWinId = Ext.id();
 var gridId = Ext.id();
 var topBarId = Ext.id();
 
-var root = {parentId: rootId, text: '功能配置'}
+var root = {parentId: rootId, text: '组织机构'}
 var currentNode = root;
 var currentOperation = null;
 
@@ -43,7 +43,7 @@ function edit(){
     //打开编辑窗口
     var formWin = createFormWin();
     formWin.setTitle('修改'+baseName);
-    sw.ajax.request("menuInfo",{'id': id},function(result){
+    sw.ajax.request("orgInfo",{'id': id},function(result){
         sw.form.setValue(formId, result.data);
         var statusId = 'state_' + (result.data.state==0? 0 : 1);
         Ext.getCmp(statusId).setValue(true);
@@ -86,7 +86,7 @@ function del(){
     }
     sw.Msg.confirm('提示', '您确定要删除字典（项）：'+node.text+' 吗?', function(btn, text){
         if ('yes' != btn) return;
-        sw.ajax.request("deleteMenu",{'id': node.id,"parentId":node.parentNode.id},function(result){
+        sw.ajax.request("deleteOrgInfo",{'id': node.id,"parentId":node.parentNode.id},function(result){
             if(result.success){
                 var parentNode=node.parentNode;
                 node.remove();
@@ -111,7 +111,7 @@ function dels(){
         if ('yes' != btn) return;
         sw.Msg.confirm('提示', '<span style="color:red;font-size:13px;font-weight:bold">请慎用级联删除功能 !</span><br><br>确定后将删除字典本身及子字典 !', function(btn, text){
             if ('yes' != btn) return;
-            sw.ajax.request("deleteMenu",{'id': node.id,'parentId':node.parentNode.id,'delType':'cascade'},function(result){
+            sw.ajax.request("deleteorg",{'id': node.id,'parentId':node.parentNode.id,'delType':'cascade'},function(result){
                 sw.Msg.info(result.msg);
                 node.remove();
             },true);
@@ -164,9 +164,9 @@ function paste(){
 function createFormWin(){
     var fields = [
         {
-            id: 'menuName',
+            id: 'orgname',
             fieldLabel: '名称',
-            name: 'menuName',
+            name: 'orgname',
             allowBlank:false,
             maxLength:255,
             anchor: '95%'
@@ -176,12 +176,6 @@ function createFormWin(){
             name: 'remark',
             xtype: 'textarea',
             height: 64,
-            anchor: '95%'
-        }, {
-            id: 'path',
-            fieldLabel: '全路径',
-            name: 'path',
-            readOnly: false,
             anchor: '95%'
         }, {
             xtype:'panel',

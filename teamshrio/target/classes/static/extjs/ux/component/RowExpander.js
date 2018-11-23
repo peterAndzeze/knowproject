@@ -50,7 +50,7 @@ Ext.ux.grid.RowExpander = Ext.extend(Ext.util.Observable, {
              * @param {Object} this RowExpander object.
              * @param {Object} Ext.data.Record Record for the selected row.
              * @param {Object} body body element for the secondary row.
-             * @param {Number} rowIndex The current row index.
+             * @param {Number} rowIndex The current row admin.
              */
             beforeexpand: true,
             /**
@@ -59,7 +59,7 @@ Ext.ux.grid.RowExpander = Ext.extend(Ext.util.Observable, {
              * @param {Object} this RowExpander object.
              * @param {Object} Ext.data.Record Record for the selected row.
              * @param {Object} body body element for the secondary row.
-             * @param {Number} rowIndex The current row index.
+             * @param {Number} rowIndex The current row admin.
              */
             expand: true,
             /**
@@ -68,7 +68,7 @@ Ext.ux.grid.RowExpander = Ext.extend(Ext.util.Observable, {
              * @param {Object} this RowExpander object.
              * @param {Object} Ext.data.Record Record for the selected row.
              * @param {Object} body body element for the secondary row.
-             * @param {Number} rowIndex The current row index.
+             * @param {Number} rowIndex The current row admin.
              */
             beforecollapse: true,
             /**
@@ -77,7 +77,7 @@ Ext.ux.grid.RowExpander = Ext.extend(Ext.util.Observable, {
              * @param {Object} this RowExpander object.
              * @param {Object} Ext.data.Record Record for the selected row.
              * @param {Object} body body element for the secondary row.
-             * @param {Number} rowIndex The current row index.
+             * @param {Number} rowIndex The current row admin.
              */
             collapse: true
         });

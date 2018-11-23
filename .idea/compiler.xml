@@ -21,6 +21,7 @@
       <module name="httpclient" target="1.8" />
       <module name="jdbc" target="1.8" />
       <module name="knowproject" target="1.8" />
+      <module name="session" target="1.8" />
       <module name="springcloud-eureka" target="1.8" />
       <module name="springcloudeureka" target="1.8" />
       <module name="teamshrio" target="1.8" />

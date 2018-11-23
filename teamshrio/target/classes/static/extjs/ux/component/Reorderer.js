@@ -81,8 +81,8 @@ Ext.ux.Reorderer = Ext.extend(Object, {
      *     1: 5,
      *     3: 2
      * });
-     * Would move the item at index 1 to index 5, and the item at index 3 to index 2
-     * @param {Object} mappings Object containing current item index as key and new index as property
+     * Would move the item at admin 1 to admin 5, and the item at admin 3 to admin 2
+     * @param {Object} mappings Object containing current item admin as key and new admin as property
      */
     reorder: function(mappings) {
         var target = this.target;
@@ -132,7 +132,7 @@ Ext.ux.Reorderer = Ext.extend(Object, {
             b4StartDrag: function() {       
                 this.startPosition = el.getXY();
                 
-                //bump up the z index of the button being dragged but keep a reference to the original
+                //bump up the z admin of the button being dragged but keep a reference to the original
                 this.startZIndex = el.getStyle('zIndex');
                 el.setStyle('zIndex', 10000);
                 
@@ -140,7 +140,7 @@ Ext.ux.Reorderer = Ext.extend(Object, {
             },
             
             onDrag: function(e) {
-                //calculate the button's index within the toolbar and its current midpoint
+                //calculate the button's admin within the toolbar and its current midpoint
                 var buttonX  = el.getXY()[0],
                     deltaX   = buttonX - this.startPosition[0],
                     items    = tbar.items.items,
@@ -168,7 +168,7 @@ Ext.ux.Reorderer = Ext.extend(Object, {
             
             /**
              * After the drag has been completed, make sure the button being dragged makes it back to
-             * the correct location and resets its z index
+             * the correct location and resets its z admin
              */
             endDrag: function() {
                 //we need to update the cache here for cases where the button was dragged but its
@@ -303,7 +303,7 @@ Ext.ux.HBoxReorderer = Ext.extend(Ext.ux.Reorderer, {
             b4StartDrag: function() {       
                 this.startPosition = el.getXY();
                 
-                //bump up the z index of the button being dragged but keep a reference to the original
+                //bump up the z admin of the button being dragged but keep a reference to the original
                 this.startZIndex = el.getStyle('zIndex');
                 el.setStyle('zIndex', 10000);
                 
@@ -319,7 +319,7 @@ Ext.ux.HBoxReorderer = Ext.extend(Ext.ux.Reorderer, {
             },
             
             onDrag: function(e) {
-                //calculate the button's index within the toolbar and its current midpoint
+                //calculate the button's admin within the toolbar and its current midpoint
                 var buttonX  = el.getXY()[0],
                     deltaX   = buttonX - this.startPosition[0],
                     items    = tbar.items.items,
@@ -348,7 +348,7 @@ Ext.ux.HBoxReorderer = Ext.extend(Ext.ux.Reorderer, {
             
             /**
              * After the drag has been completed, make sure the button being dragged makes it back to
-             * the correct location and resets its z index
+             * the correct location and resets its z admin
              */
             endDrag: function() {
                 //we need to update the cache here for cases where the button was dragged but its

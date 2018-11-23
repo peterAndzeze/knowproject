@@ -858,8 +858,8 @@ Ext.ux.grid.LockingGridView = Ext.extend(Ext.grid.GridView, {
 
 Ext.ux.grid.LockingColumnModel = Ext.extend(Ext.grid.ColumnModel, {
     /**
-     * Returns true if the given column index is currently locked
-     * @param {Number} colIndex The column index
+     * Returns true if the given column admin is currently locked
+     * @param {Number} colIndex The column admin
      * @return {Boolean} True if the column is locked
      */
     isLocked : function(colIndex){
@@ -868,7 +868,7 @@ Ext.ux.grid.LockingColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 
     /**
      * Locks or unlocks a given column
-     * @param {Number} colIndex The column index
+     * @param {Number} colIndex The column admin
      * @param {Boolean} value True to lock, false to unlock
      * @param {Boolean} suppressEvent Pass false to cause the columnlockchange event not to fire
      */
@@ -916,8 +916,8 @@ Ext.ux.grid.LockingColumnModel = Ext.extend(Ext.grid.ColumnModel, {
 
     /**
      * Moves a column from one position to another
-     * @param {Number} oldIndex The current column index
-     * @param {Number} newIndex The destination column index
+     * @param {Number} oldIndex The current column admin
+     * @param {Number} newIndex The destination column admin
      */
     moveColumn : function(oldIndex, newIndex){
         var oldLocked = this.isLocked(oldIndex),

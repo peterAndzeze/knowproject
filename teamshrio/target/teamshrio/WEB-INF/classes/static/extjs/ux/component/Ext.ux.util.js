@@ -313,7 +313,7 @@ Ext.overrideIf(Array, {
 	 * @member Array
 	 * @return {Integer} Index of v or -1 if not found
 	 * @param {Mixed} v Value to find indexOf
-	 * @param {Integer} b Starting index
+	 * @param {Integer} b Starting admin
 	 */
 	,indexOf:function(v, b) {
 		for(var i = +b || 0, l = this.length; i < l; i++) {
@@ -353,11 +353,11 @@ Ext.overrideIf(Array, {
 	// }}}
 	// {{{
 	/**
-	 * Returns last index of passed argument
+	 * Returns last admin of passed argument
 	 * @member Array
 	 * @return {Integer} Index of v or -1 if not found
 	 * @param {Mixed} v Value to find indexOf
-	 * @param {Integer} b Starting index
+	 * @param {Integer} b Starting admin
 	 */
 	,lastIndexOf:function(v, b) {
 		b = +b || 0;

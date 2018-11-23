@@ -114,7 +114,7 @@ var topBar = [{
         xtype: 'toolbar',
         items: [{
             xtype: 'label',
-            html: '&nbsp;：业务系统名称'
+            html: '&nbsp;业务系统名称:'
         }, {
             id: 'search_sysName',
             xtype: 'textfield',
@@ -211,8 +211,8 @@ function addAppname() {
                 sw.ajax.submit("saveOrUpdateAppname", "AppnameForm",
                     function (result) {
                         Ext.getCmp("AppnameWin").close();
-                        grid.store.reload();
                         sw.Msg.info(result.msg);
+                        grid.store.reload();
                     });
             }
         }, {
