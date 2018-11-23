@@ -219,7 +219,7 @@ Ext.ux.form.LovCombo = Ext.extend(Ext.form.ComboBox, {
 	 * Combo's onSelect override
 	 * @private
 	 * @param {Ext.data.Record} record record that has been selected in the list
-	 * @param {Number} index index of selected (clicked) record
+	 * @param {Number} admin admin of selected (clicked) record
 	 */
 	,onSelect:function(record, index) {
         if(this.fireEvent('beforeselect', this, record, index) !== false){

@@ -3,9 +3,9 @@
 <mapper namespace="com.sw.project.teamshrio.orginfo.OrgInfoModelMapper">
   <resultMap id="BaseResultMap" type="com.sw.project.teamshrio.orginfo.OrgInfoModel">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="orgcode" jdbcType="VARCHAR" property="orgcode" />
-    <result column="orgname" jdbcType="VARCHAR" property="orgname" />
-    <result column="orgdesc" jdbcType="VARCHAR" property="orgdesc" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgcode" />
+    <result column="org_name" jdbcType="VARCHAR" property="orgname" />
+    <result column="org_desc" jdbcType="VARCHAR" property="orgdesc" />
     <result column="state" jdbcType="CHAR" property="state" />
     <result column="parent_id" jdbcType="BIGINT" property="parentId" />
     <result column="create_id" jdbcType="BIGINT" property="createId" />
@@ -16,7 +16,7 @@
     <result column="leaf" jdbcType="CHAR" property="leaf"/>
   </resultMap>
   <sql id="Base_Column_List">
-    id, orgcode, orgname, orgdesc, state, parent_id, create_id, create_time, opera_id, 
+    id, org_code, org_name, org_desc, state, parent_id, create_id, create_time, opera_id,
     opera_time, version,leaf
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -30,8 +30,8 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.sw.project.teamshrio.orginfo.OrgInfoModel">
-    insert into tb_org_info (id, orgcode, orgname, 
-      orgdesc, state, parent_id, 
+    insert into tb_org_info (id, org_code, org_name,
+      org_desc, state, parent_id,
       create_id, create_time, opera_id, 
       opera_time, version,leaf)
     values (#{id,jdbcType=BIGINT}, #{orgcode,jdbcType=VARCHAR}, #{orgname,jdbcType=VARCHAR}, 
@@ -46,13 +46,13 @@
         id,
       </if>
       <if test="orgcode != null">
-        orgcode,
+        org_code,
       </if>
       <if test="orgname != null">
-        orgname,
+        org_name,
       </if>
       <if test="orgdesc != null">
-        orgdesc,
+        org_desc,
       </if>
       <if test="state != null">
         state,
@@ -122,13 +122,13 @@
     update tb_org_info
     <set>
       <if test="orgcode != null">
-        orgcode = #{orgcode,jdbcType=VARCHAR},
+        org_code = #{orgcode,jdbcType=VARCHAR},
       </if>
       <if test="orgname != null">
-        orgname = #{orgname,jdbcType=VARCHAR},
+        org_name = #{orgname,jdbcType=VARCHAR},
       </if>
       <if test="orgdesc != null">
-        orgdesc = #{orgdesc,jdbcType=VARCHAR},
+        org_desc = #{orgdesc,jdbcType=VARCHAR},
       </if>
       <if test="state != null">
         state = #{state,jdbcType=CHAR},
@@ -159,9 +159,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sw.project.teamshrio.orginfo.OrgInfoModel">
     update tb_org_info
-    set orgcode = #{orgcode,jdbcType=VARCHAR},
-      orgname = #{orgname,jdbcType=VARCHAR},
-      orgdesc = #{orgdesc,jdbcType=VARCHAR},
+    set org_code = #{orgcode,jdbcType=VARCHAR},
+      org_name = #{orgname,jdbcType=VARCHAR},
+      org_desc = #{orgdesc,jdbcType=VARCHAR},
       state = #{state,jdbcType=CHAR},
       parent_id = #{parentId,jdbcType=BIGINT},
       create_id = #{createId,jdbcType=BIGINT},
@@ -172,7 +172,7 @@
       leaf=#{leaf,jdbcType=CHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <select id="getOrgInfoByParentId" resultMap="BaseResultMap">
+  <select id="getOrgInfosByParentId" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from tb_org_info
@@ -181,7 +181,7 @@
       and role_id=#{roleId}
     </if>-->
     <if test="null!=parentId">
-      parent_id = #{parentId,jdbcType=BIGINT}
+      and  parent_id = #{parentId,jdbcType=BIGINT}
     </if>
   </select>
 

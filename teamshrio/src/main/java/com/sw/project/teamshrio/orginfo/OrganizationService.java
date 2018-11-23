@@ -39,7 +39,6 @@ public class OrganizationService {
             } else {
                 node.put("leaf", false);
             }
-            node.put("path", orgInfoModel.getPath());
             tree.add(node);
         }
         return JSONArray.toJSONString(tree);

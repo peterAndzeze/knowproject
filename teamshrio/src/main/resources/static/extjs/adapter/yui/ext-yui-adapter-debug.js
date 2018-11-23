@@ -445,20 +445,20 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
          * argument is not really an array, the supplied function is called once.
          * @param {Function} fn The function to be called with each item. If the
          * supplied function returns false, iteration stops and this method returns
-         * the current <code>index</code>. This function is called with
+         * the current <code>admin</code>. This function is called with
          * the following arguments:
          * <div class="mdetail-params"><ul>
          * <li><code>item</code> : <i>Mixed</i>
-         * <div class="sub-desc">The item at the current <code>index</code>
+         * <div class="sub-desc">The item at the current <code>admin</code>
          * in the passed <code>array</code></div></li>
-         * <li><code>index</code> : <i>Number</i>
-         * <div class="sub-desc">The current index within the array</div></li>
+         * <li><code>admin</code> : <i>Number</i>
+         * <div class="sub-desc">The current admin within the array</div></li>
          * <li><code>allItems</code> : <i>Array</i>
          * <div class="sub-desc">The <code>array</code> passed as the first
          * argument to <code>Ext.each</code>.</div></li>
          * </ul></div>
          * @param {Object} scope The scope (<code>this</code> reference) in which the specified function is executed.
-         * Defaults to the <code>item</code> at the current <code>index</code>
+         * Defaults to the <code>item</code> at the current <code>admin</code>
          * within the passed <code>array</code>.
          * @return See description for the fn parameter.
          */
@@ -485,7 +485,7 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
          * all array elements / object properties have been covered. The signature
          * varies depending on the type of object being interated:
          * <div class="mdetail-params"><ul>
-         * <li>Arrays : <tt>(Object item, Number index, Array allItems)</tt>
+         * <li>Arrays : <tt>(Object item, Number admin, Array allItems)</tt>
          * <div class="sub-desc">
          * When iterating an array, the supplied function is called with each item.</div></li>
          * <li>Objects : <tt>(String key, Object value, Object)</tt>
@@ -1041,8 +1041,8 @@ Ext.applyIf(Array.prototype, {
     /**
      * Checks whether or not the specified object exists in the array.
      * @param {Object} o The object to check for
-     * @param {Number} from (Optional) The index at which to begin the search
-     * @return {Number} The index of o in the array (or -1 if it is not found)
+     * @param {Number} from (Optional) The admin at which to begin the search
+     * @return {Number} The admin of o in the array (or -1 if it is not found)
      */
     indexOf : function(o, from){
         var len = this.length;
@@ -1300,7 +1300,7 @@ Ext.lib.Dom = {
 
     // original version based on YahooUI getXY
     // this version fixes several issues in Safari and FF
-    // and boosts performance by removing the batch overhead, repetitive dom lookups and array index calls
+    // and boosts performance by removing the batch overhead, repetitive dom lookups and array admin calls
     getXY : function(el){
         var p, pe, b, scroll, bd = (document.body || document.documentElement);
         el = Ext.getDom(el);

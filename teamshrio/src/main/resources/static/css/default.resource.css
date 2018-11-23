@@ -283,3 +283,8 @@
 	background-image:
 		url("../extjs/icons/add.png") !important;
 }
+
+.orgimage{
+	background-image:
+			url("../extjs/icons/chart_organisation.png") !important;
+}

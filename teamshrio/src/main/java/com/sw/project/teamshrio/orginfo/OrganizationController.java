@@ -4,6 +4,7 @@ import com.sw.project.teamshrio.framework.spring.BaseController;
 import com.sw.project.teamshrio.user.UserService;
 import com.sw.project.teamshrio.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * 组织机构信息
  */
 @RequestMapping("organzation")
+@Controller
 public class OrganizationController extends BaseController {
     @Autowired
     UserService userService;
@@ -59,7 +61,7 @@ public class OrganizationController extends BaseController {
 
     @RequestMapping("/getPages")
     @ResponseBody
-    public String getMenuPage(PageModel pageModel, OrgInfoModel param) {
+    public String getOrgInfoPage(PageModel pageModel, OrgInfoModel param) {
         OrgInfoModel orgInfoModel = organizationService.getOrgInfoById(param.getId());
         List<OrgInfoModel> childOrgInfos =organizationService.getOrgInfoByParentId(null,param.getId());
         childOrgInfos.add(orgInfoModel);
@@ -80,6 +82,7 @@ public class OrganizationController extends BaseController {
     }
 
     @Override
+    @RequestMapping("/main")
     public String getPath(HttpServletRequest request) {
         return forward("organization/main");
     }
