@@ -10,11 +10,27 @@ public class ReturnMsgModel {
     private boolean isSuccess;
     private String msg;
     private Object data;
+
+    /**
+     * 状态码
+     */
+    protected Integer code;
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public ReturnMsgModel setCode(Integer code) {
+        this.code = code;
+        return this;
+    }
+
     public boolean isSuccess() {
         return isSuccess;
     }
-    public void setSuccess(boolean isSuccess) {
+    public ReturnMsgModel setSuccess(boolean isSuccess) {
         this.isSuccess = isSuccess;
+        return this;
     }
     public String getMsg() {
         return msg;

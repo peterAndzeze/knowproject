@@ -12,6 +12,7 @@
         <module name="jdbc" />
         <module name="springcloudeureka" />
         <module name="teamshrio" />
+        <module name="teamshrioclient" />
         <module name="threadpool" />
       </profile>
     </annotationProcessing>
@@ -25,6 +26,9 @@
       <module name="springcloud-eureka" target="1.8" />
       <module name="springcloudeureka" target="1.8" />
       <module name="teamshrio" target="1.8" />
+      <module name="teamshriobase" target="1.8" />
+      <module name="teamshrioclient" target="1.8" />
+      <module name="teamshrioserver" target="1.8" />
       <module name="threadpool" target="1.8" />
     </bytecodeTargetLevel>
   </component>

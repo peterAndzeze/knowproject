@@ -1,6 +1,6 @@
 package com.sw.project.teamshrio.menu;
 
-import com.sw.project.teamshrio.TeamshrioApplicationTests;
+import com.sw.project.TeamshrioApplicationTests;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class MenuTest extends TeamshrioApplicationTests {

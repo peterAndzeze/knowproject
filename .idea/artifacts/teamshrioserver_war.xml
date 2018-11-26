@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="teamshrioserver:war">
+    <output-path>$PROJECT_DIR$/teamshrioserver/target</output-path>
+    <root id="archive" name="teamshrioserver-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="teamshrioserver:war exploded" />
+    </root>
+  </artifact>
+</component>

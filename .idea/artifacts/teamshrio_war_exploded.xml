@@ -1,12 +1,15 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="teamshrio:war exploded">
-    <output-path>$PROJECT_DIR$/teamshrio/target/teamshrio</output-path>
+    <output-path>$PROJECT_DIR$/teamshrio/target/com.sw.project.teamshrio</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="teamshrio" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="teamshrioclient-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="teamshrioclient" />
+          </element>
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.0.2.RELEASE" />
@@ -64,7 +67,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/teamshrio/target/teamshrio/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/teamshrio/target/com.sw.project.teamshrio/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="teamshrio/web/Web" />
     </root>

@@ -1,6 +1,5 @@
 package com.sw.project.teamshrio.orginfo;
 
-import com.sw.project.teamshrio.orginfo.OrgInfoModel;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,6 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>teamshrio</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link th:href="@{extjs/resources/css/ext-all.css}" rel="stylesheet"
 	type="text/css" />
@@ -16,6 +15,7 @@
 body{FONT-FAMILY: 微软雅黑;}
 </style>
 </head>
+<title><p th:value="${_systemName}"></p></title>
 <body background="images/capec.png" style="background-repeat: no-repeat;" leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
 <div style="PADDING-TOP: 80px" align=center valign="middle">
 <form method="post" name=loginform action="admin/admin">
@@ -45,7 +45,7 @@ style="BORDER-BOTTOM: #ecfafb 6px solid; BORDER-LEFT: #ecfafb 6px solid; BORDER-
   <tr>
     <td width=401>　</td></tr></tbody></table>
 <p style="LINE-HEIGHT: 250%; MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px"><font 
-style="FONT-SIZE: 9pt">swproject----teamshrio</font></p></div></form></div>
+style="FONT-SIZE: 9pt">swproject----com.sw.project.teamshrio</font></p></div></form></div>
 <script language=javascript>
 
 function checkform() {

@@ -1,6 +1,5 @@
 package com.sw.project.teamshrio.user;
 
-import com.sw.project.teamshrio.user.UserModel;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

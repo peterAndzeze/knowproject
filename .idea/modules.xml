@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/jdbc/jdbc.iml" filepath="$PROJECT_DIR$/jdbc/jdbc.iml" />
       <module fileurl="file://$PROJECT_DIR$/knowproject.iml" filepath="$PROJECT_DIR$/knowproject.iml" />
       <module fileurl="file://$PROJECT_DIR$/teamshrio/teamshrio.iml" filepath="$PROJECT_DIR$/teamshrio/teamshrio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teamshrioclient/teamshrioclient.iml" filepath="$PROJECT_DIR$/teamshrioclient/teamshrioclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/threadpool/threadpool.iml" filepath="$PROJECT_DIR$/threadpool/threadpool.iml" />
     </modules>
   </component>

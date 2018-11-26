@@ -1,17 +1,14 @@
 package com.sw.project.teamshrio.menu;
 
 import com.sw.project.teamshrio.framework.spring.BaseController;
-import com.sw.project.teamshrio.user.UserModel;
 import com.sw.project.teamshrio.user.UserService;
 import com.sw.project.teamshrio.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller

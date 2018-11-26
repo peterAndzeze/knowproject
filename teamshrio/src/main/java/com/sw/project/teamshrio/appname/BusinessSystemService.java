@@ -4,7 +4,6 @@ import com.sw.project.teamshrio.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +20,7 @@ public class BusinessSystemService {
      * @param businessSystemModel
      * @return
      */
-    public PageModel queryPageBusinessSystem(PageModel pageModel,BusinessSystemModel businessSystemModel){
+    public PageModel queryPageBusinessSystem(PageModel pageModel, BusinessSystemModel businessSystemModel){
         int count=businessSystemModelMapper.rowCount(pageModel,businessSystemModel);
         if(count>0){
             List<BusinessSystemModel> businessSystemModels=businessSystemModelMapper.queryPageBusinessSystems(pageModel,businessSystemModel);
