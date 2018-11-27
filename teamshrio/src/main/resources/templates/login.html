@@ -15,7 +15,7 @@
 body{FONT-FAMILY: 微软雅黑;}
 </style>
 </head>
-<title><p th:value="${_systemName}"></p></title>
+<title></title>
 <body background="images/capec.png" style="background-repeat: no-repeat;" leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
 <div style="PADDING-TOP: 80px" align=center valign="middle">
 <form method="post" name=loginform action="admin/admin">
@@ -38,7 +38,11 @@ style="BORDER-BOTTOM: #ecfafb 6px solid; BORDER-LEFT: #ecfafb 6px solid; BORDER-
             style="WIDTH: 100px; HEIGHT: 25px; FONT-SIZE: 12pt" id=username 
             tabIndex=1 name="userName"> 密码：<input
             style="WIDTH: 100px; HEIGHT: 25px; FONT-SIZE: 12pt" tabIndex=2 
-            type=password name="userPwd" autocomplete="off"></td>
+            type=password name="userPwd" autocomplete="off">
+          <input th:value="${backUrl}" style="display: none">
+            <input id="_captcha" name="captcha" type="text" placeholder="验证码"
+                   required="true"/>
+            <img alt="" src="captcha"></td>
           <td><input id=submit tabIndex=5 onclick="return checkform()" value="登陆" border=0 type="submit"  name=submit></td>
           <td></td>
           <td width="10%"></td></tr></tbody></table></td></tr>

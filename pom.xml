@@ -14,9 +14,8 @@
         <module>httpclient</module>
         <module>esjavaclinet</module>
         <module>threadpool</module>
-        <module>com.sw.project.teamshrio</module>
+        <module>teamshrio</module>
         <module>teamshrioclient</module>
-        <module>teamshrioserver</module>
     </modules>
 
     <properties>

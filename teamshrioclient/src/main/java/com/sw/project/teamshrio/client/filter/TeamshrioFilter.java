@@ -52,7 +52,7 @@ public class TeamshrioFilter extends  ClientFilter {
         }else{//非ajax
             SessionUtils.invalidate(request);
             String teamshrioLoginUrl=new StringBuilder().append(teamShrioUrl)
-                    .append("/login?backUrl").append(URLEncoder.encode(getBackUrl(request),"UTF-8")).toString();
+                    .append("/login?backUrl=").append(URLEncoder.encode(getBackUrl(request),"UTF-8")).toString();
             response.sendRedirect(teamshrioLoginUrl);
         }
 

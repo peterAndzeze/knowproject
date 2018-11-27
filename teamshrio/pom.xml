@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.sw.project</groupId>
-    <artifactId>com.sw.project.teamshrio</artifactId>
+    <artifactId>teamshrio</artifactId>
     <packaging>war</packaging>
 
-    <name>com.sw.project.teamshrio Maven Webapp</name>
+    <name>teamshrio Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -72,7 +72,7 @@
     </dependencies>
 
     <build>
-        <finalName>com.sw.project.teamshrio</finalName>
+        <finalName>teamshrio</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>

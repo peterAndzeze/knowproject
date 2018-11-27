@@ -1,5 +1,6 @@
 package com.sw.project.teamshrio.client.filter;
 
+import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
 import org.springframework.util.StringUtils;
@@ -21,6 +22,7 @@ import java.io.IOException;
  * @Description: teamshrio容器
  * @date 18-11-26 下午12:04
  */
+@Component
 public class TeamshrioContainer extends ParamFilter implements Filter {
     //是否是服务器端 默认为fase
     private boolean isServer=false;

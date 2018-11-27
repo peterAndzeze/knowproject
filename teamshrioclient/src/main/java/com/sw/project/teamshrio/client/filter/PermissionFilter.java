@@ -25,6 +25,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * @Description: 权限控制filter
  * @date 18-11-26 下午2:09
  */
+@Component
 public class PermissionFilter extends  ClientFilter{
     // 当前应用关联权限系统的应用编码
     private String ssoAppCode;
