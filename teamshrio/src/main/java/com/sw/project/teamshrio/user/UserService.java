@@ -21,15 +21,18 @@ public class UserService {
      * @param userPwd
      * @return
      */
-    public UserModel getUserByNameAndPass(String userName,String userPwd){
-        return userModelMapper.selectByNameAndPass(userName,userPwd);
+    public UserModel selectByNameAndPwd(String userName,String userPwd){
+        return userModelMapper.selectByNameAndPwd(userName,userPwd);
     }
 
     public ReturnMsgModel login(String ip, String account, String password) {
         ReturnMsgModel result = new ReturnMsgModel();
-        UserModel user = getUserByNameAndPass(account,password);
+        UserModel user = selectByNameAndPwd(account,password);
         if (user == null) {
             result.setCode(TeamShiroConstant.ERROR).setMsg("登录名不存在");
+        }
+        if(user.getState().equals(TeamShiroConstant.SYS_DATA_INVALID)){
+            result.setCode(TeamShiroConstant.ERROR).setMsg("用户已过期请重新注册");
         }
         else if (!user.getUserPwd().equals(password)) {
             result.setCode(TeamShiroConstant.ERROR).setMsg("密码不正确");

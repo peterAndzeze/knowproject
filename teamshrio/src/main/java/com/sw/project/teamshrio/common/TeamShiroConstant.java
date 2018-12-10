@@ -4,10 +4,14 @@ package com.sw.project.teamshrio.common;
  * 常量类
  */
 public final class TeamShiroConstant {
-    public  static Long PARENT_ID=0L;//父级节点标识
-    public  static String IS_NOT_LEAF="0";//不是末级节点
-    public  static String IS_LEAF="1";//不是末级节点
-    public static String DELTYPE="cascade";//是否是级联删除
+    //系统级数据有效状态码
+    public final static String SYS_DATA_EFFECTIVE="1";//有效
+    public final static String SYS_DATA_INVALID="0";//失效
+
+    public final  static Long PARENT_ID=0L;//父级节点标识
+    public final static String IS_NOT_LEAF="0";//不是末级节点
+    public final static String IS_LEAF="1";//不是末级节点
+    public final static String DELTYPE="cascade";//是否是级联删除
 
 
     public final static int SUCCESS = 1;// 成功

@@ -54,14 +54,14 @@ public class LoginController extends BaseController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String login(
-             String backUrl,String account, String password, String captcha,
+             String backUrl,UserModel userModel, String captcha,
             HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         System.out.println("loginpost**********************");
-        if (!CaptchaHelper.validate(request, captcha)) {
+        /*if (!CaptchaHelper.validate(request, captcha)) {
             request.setAttribute("errorMessage", "验证码不正确");
             return goLoginPath(backUrl, request);
-        }
-        ReturnMsgModel result = userService.login(getIpAddr(request), account, PasswordProvider.encrypt(password));
+        }*/
+        ReturnMsgModel result = userService.login(getIpAddr(request), userModel.getUserName(), PasswordProvider.encrypt(userModel.getUserPwd()));
         if (!result.getCode().equals(TeamShiroConstant.SUCCESS)) {
             request.setAttribute("errorMessage", result.getMsg());
             return goLoginPath(backUrl, request);

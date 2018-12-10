@@ -4,13 +4,12 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/date" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/esjavaclinet" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flink" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flinkdemo" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/httpclient" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdbc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/teamshrio" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/teamshrio/teamshrioclient" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/teamshriobase" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/teamshrioclient" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/teamshrioserver" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/threadpool" charset="UTF-8" />
   </component>
 </project>

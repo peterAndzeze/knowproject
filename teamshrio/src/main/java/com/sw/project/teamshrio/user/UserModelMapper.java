@@ -1,6 +1,7 @@
 package com.sw.project.teamshrio.user;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface UserModelMapper {
@@ -38,7 +39,7 @@ public interface UserModelMapper {
      * @param userPwd
      * @return
      */
-    UserModel selectByNameAndPass(String userName,String userPwd);
+    UserModel selectByNameAndPwd(@Param("userName") String userName, @Param("userPwd") String userPwd);
 
     /**
      * 主键更新一般属性

@@ -17,7 +17,7 @@ import java.io.IOException;
  * 
  * @author Joe
  */
-@Component
+//@Component
 public class CaptchaFilter implements Filter {
 
 	@Override

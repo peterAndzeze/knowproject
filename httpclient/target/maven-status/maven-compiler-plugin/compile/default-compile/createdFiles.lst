@@ -1,5 +1,5 @@
-com/sw/project/controller/UserInfo.class
-com/sw/project/HttpclientApplication.class
-com/sw/project/controller/CustomerAsyCallBack.class
-com/sw/project/controller/RequestController.class
-com/sw/project/httpconfiguration/HttpConfiguration.class
+com/sw/project/teamshrio/client/controller/RequestController.class
+com/sw/project/teamshrio/client/controller/UserInfo.class
+com/sw/project/teamshrio/client/HttpclientApplication.class
+com/sw/project/teamshrio/client/httpconfiguration/HttpConfiguration.class
+com/sw/project/teamshrio/client/controller/CustomerAsyCallBack.class

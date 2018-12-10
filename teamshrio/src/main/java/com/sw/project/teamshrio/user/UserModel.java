@@ -29,6 +29,8 @@ public class UserModel {
 
     private String remark;
 
+    private Long orgId;
+
     public Long getId() {
         return id;
     }
@@ -131,5 +133,13 @@ public class UserModel {
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
     }
 }

@@ -25,14 +25,14 @@ public class CustomerFilterAndServlet{
     @Autowired
     SysProperties sysProperties;
 
-    @Bean
+   /* @Bean
     public FilterRegistrationBean registrationBeanCaptchaFilter(CaptchaFilter captchaFilter){
         FilterRegistrationBean filterRegistrationBean =new FilterRegistrationBean();
         filterRegistrationBean.setFilter(captchaFilter);
         filterRegistrationBean.addUrlPatterns("/captchaFilter/*");
         filterRegistrationBean.setOrder(4);
         return filterRegistrationBean;
-    }
+    }*/
 
     /**
      * 过滤器

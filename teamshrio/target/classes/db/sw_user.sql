@@ -11,7 +11,7 @@
  Target Server Version : 50723
  File Encoding         : 65001
 
- Date: 08/10/2018 17:47:18
+ Date: 10/12/2018 17:32:46
 */
 
 SET NAMES utf8mb4;
@@ -36,12 +36,14 @@ CREATE TABLE `tb_business_system`  (
   `version` bigint(20) NULL DEFAULT NULL COMMENT '数据状态',
   `role_id` bigint(20) NULL DEFAULT NULL COMMENT '角色编号',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '业务系统信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '业务系统信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_business_system
 -- ----------------------------
-INSERT INTO `tb_business_system` VALUES (1, 'sadasd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tb_business_system` VALUES (1, '知识学习', '对于新知识或者其它的知识点总结。', '', NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL);
+INSERT INTO `tb_business_system` VALUES (3, '知识曲线', '你号', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tb_business_system` VALUES (4, '心灵测试', '阿萨德', '阿萨德', NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for tb_button_info
@@ -131,13 +133,16 @@ CREATE TABLE `tb_menu_info`  (
   `path` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '菜单路径',
   `icon` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '菜单图片名称',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_menu_info
 -- ----------------------------
 INSERT INTO `tb_menu_info` VALUES (1, '功能菜单配置', '0', '1', -1, 10001, '2018-09-21 17:33:40', 10001, '2018-09-21 17:33:48', 0, '最高节点', 1, 1, 1, ' menu/main', NULL);
 INSERT INTO `tb_menu_info` VALUES (2, '业务系统', '0', '1', -1, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, 'appname/main', NULL);
+INSERT INTO `tb_menu_info` VALUES (3, '组织机构信息', '0', '1', -1, NULL, NULL, NULL, NULL, NULL, '添加组织机构信息', NULL, NULL, NULL, 'organzation/main', NULL);
+INSERT INTO `tb_menu_info` VALUES (5, '用户管理', '0', '1', -1, NULL, NULL, NULL, NULL, NULL, '管理登录用户信息', NULL, NULL, NULL, '', NULL);
+INSERT INTO `tb_menu_info` VALUES (6, '角色管理', '0', '1', -1, NULL, NULL, NULL, NULL, NULL, '管理角色', NULL, NULL, NULL, '', NULL);
 
 -- ----------------------------
 -- Table structure for tb_org_info
@@ -145,9 +150,9 @@ INSERT INTO `tb_menu_info` VALUES (2, '业务系统', '0', '1', -1, NULL, NULL, 
 DROP TABLE IF EXISTS `tb_org_info`;
 CREATE TABLE `tb_org_info`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT ' 虚拟主键',
-  `orgcode` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '机构编号',
-  `orgname` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '机构名称',
-  `orgdesc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '机构描述',
+  `org_code` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '机构编号',
+  `org_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '机构名称',
+  `org_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '机构描述',
   `state` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '数据状态(1:有效。0：无效)',
   `parent_id` bigint(20) NULL DEFAULT NULL COMMENT '上级机构',
   `create_id` bigint(20) NULL DEFAULT NULL COMMENT '创建人',
@@ -155,13 +160,16 @@ CREATE TABLE `tb_org_info`  (
   `opera_id` bigint(20) NULL DEFAULT NULL COMMENT '操作人',
   `opera_time` datetime(0) NULL DEFAULT NULL COMMENT '操作时间',
   `version` bigint(32) NULL DEFAULT NULL COMMENT '数据版本',
+  `leaf` char(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否末级，1:是，0:否',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '组织机构信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '组织机构信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_org_info
 -- ----------------------------
-INSERT INTO `tb_org_info` VALUES (1, 'newcapec', '新开普', '现代化互联网', '1', 0, 1, '2018-08-31 10:02:57', 1, '2018-08-31 10:03:02', 0);
+INSERT INTO `tb_org_info` VALUES (1, 'newcapec', '新开普', '现代化互联网', '1', 0, 1, '2018-08-31 10:02:57', 1, '2018-08-31 10:03:02', 0, NULL);
+INSERT INTO `tb_org_info` VALUES (2, NULL, '朋友圈', NULL, '0', -1, NULL, NULL, NULL, NULL, NULL, '1');
+INSERT INTO `tb_org_info` VALUES (3, NULL, '博客组', NULL, '0', -1, NULL, NULL, NULL, NULL, NULL, '1');
 
 -- ----------------------------
 -- Table structure for tb_role_info
@@ -231,7 +239,7 @@ CREATE TABLE `tb_user_info`  (
 -- ----------------------------
 -- Records of tb_user_info
 -- ----------------------------
-INSERT INTO `tb_user_info` VALUES (1, 'sw', 'nicai', '13718085143', '1', 'peter', '1', '2018-08-31 10:04:56', 1, '2018-08-31 10:05:00', 1, 0, '最高权限用户', 1);
+INSERT INTO `tb_user_info` VALUES (1, 'admin', '26524bdf4ea266f131566a89e8f4972c', '13718085143', '1', 'peter', '1', '2018-08-31 10:04:56', 1, '2018-08-31 10:05:00', 1, 0, '最高权限用户', 1);
 
 -- ----------------------------
 -- Table structure for tp_role_depart_relation

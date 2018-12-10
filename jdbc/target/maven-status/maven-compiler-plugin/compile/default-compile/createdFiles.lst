@@ -1,6 +1,6 @@
-com/sw/project/jdbctemplate/JdbcTemplateConfiguration.class
-com/sw/project/user/UserInfoService.class
-com/sw/project/user/UserInfoModel.class
-com/sw/project/JdbcApplication.class
-com/sw/project/user/UserInfoDao.class
-com/sw/project/jdbctemplate/BaseJdbcTemplate.class
+com/sw/project/teamshrio/client/user/UserInfoModel.class
+com/sw/project/teamshrio/client/user/UserInfoDao.class
+com/sw/project/teamshrio/client/jdbctemplate/BaseJdbcTemplate.class
+com/sw/project/teamshrio/client/user/UserInfoService.class
+com/sw/project/teamshrio/client/JdbcApplication.class
+com/sw/project/teamshrio/client/jdbctemplate/JdbcTemplateConfiguration.class

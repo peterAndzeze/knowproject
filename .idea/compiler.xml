@@ -19,6 +19,8 @@
     <bytecodeTargetLevel>
       <module name="date" target="1.8" />
       <module name="esjavaclinet" target="1.8" />
+      <module name="flink" target="1.8" />
+      <module name="flinkdemo" target="1.8" />
       <module name="httpclient" target="1.8" />
       <module name="jdbc" target="1.8" />
       <module name="knowproject" target="1.8" />

@@ -1,6 +1,6 @@
-/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/jdbctemplate/BaseJdbcTemplate.java
-/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/user/UserInfoService.java
-/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/user/UserInfoModel.java
-/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/jdbctemplate/JdbcTemplateConfiguration.java
-/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/user/UserInfoDao.java
-/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/JdbcApplication.java
+/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/teamshrio/client/user/UserInfoModel.java
+/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/teamshrio/client/user/UserInfoService.java
+/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/teamshrio/client/JdbcApplication.java
+/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/teamshrio/client/jdbctemplate/BaseJdbcTemplate.java
+/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/teamshrio/client/user/UserInfoDao.java
+/home/newcapec/special/knowproject/jdbc/src/main/java/com/sw/project/teamshrio/client/jdbctemplate/JdbcTemplateConfiguration.java
